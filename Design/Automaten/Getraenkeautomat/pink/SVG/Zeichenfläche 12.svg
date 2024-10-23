@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Automat-Halbvoll-offen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #3f3e3e;
+        stroke-linecap: round;
+        stroke-linejoin: bevel;
+        stroke-width: 10px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: #418fbf;
+      }
+
+      .cls-4 {
+        fill: #594834;
+      }
+
+      .cls-5 {
+        fill: #014034;
+      }
+
+      .cls-6 {
+        fill: #737373;
+      }
+
+      .cls-7 {
+        fill: #b4a3d9;
+      }
+
+      .cls-8 {
+        opacity: .65;
+      }
+
+      .cls-9 {
+        fill: #404040;
+      }
+
+      .cls-10 {
+        fill: #8c8c8c;
+      }
+
+      .cls-11 {
+        fill: #163e8c;
+      }
+
+      .cls-2 {
+        stroke: #bfbfbf;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-12 {
+        fill: #02735e;
+      }
+
+      .cls-13 {
+        fill: #d9ad5b;
+      }
+    </style>
+  </defs>
+  <g id="Beine">
+    <rect class="cls-9" x="992.14" y="901.03" width="76.15" height="36"/>
+    <rect class="cls-9" x="798.9" y="901.03" width="76.15" height="36"/>
+  </g>
+  <path id="Körper" class="cls-7" d="M1120.92,197.53h-376.66c-23.48,0-42.51,19.03-42.51,42.51v620.34c0,11.95,4.94,22.75,12.88,30.47,2.41,2.92,5.52,5.25,9.06,6.73,6.09,3.38,13.1,5.3,20.56,5.3h376.66c23.48,0,42.51-19.03,42.51-42.51V240.04c0-23.48-19.03-42.51-42.51-42.51Z"/>
+  <rect id="Klappe" class="cls-6" x="800.71" y="803.66" width="265.53" height="61.53" rx="21.61" ry="21.61"/>
+  <g id="Bedienfeld">
+    <circle class="cls-6" cx="1075.77" cy="406.57" r="8.34"/>
+    <circle class="cls-6" cx="1096.19" cy="406.57" r="8.34"/>
+    <circle class="cls-6" cx="1116.61" cy="406.57" r="8.34"/>
+    <circle class="cls-6" cx="1075.77" cy="426.99" r="8.34"/>
+    <circle class="cls-6" cx="1096.19" cy="426.99" r="8.34"/>
+    <circle class="cls-6" cx="1116.61" cy="426.99" r="8.34"/>
+    <circle class="cls-6" cx="1075.77" cy="447.42" r="8.34"/>
+    <circle class="cls-6" cx="1096.19" cy="447.42" r="8.34"/>
+    <circle class="cls-6" cx="1096.19" cy="467.84" r="8.34"/>
+    <circle class="cls-6" cx="1116.61" cy="447.42" r="8.34"/>
+  </g>
+  <g id="Geldscheine">
+    <rect class="cls-6" x="1058.3" y="491.42" width="75.78" height="11.09"/>
+    <rect class="cls-9" x="1064.89" y="493.6" width="63" height="7.13"/>
+  </g>
+  <g id="Anzeige">
+    <rect class="cls-6" x="1058.3" y="367.52" width="75.78" height="18.62" rx="4.79" ry="4.79"/>
+    <rect class="cls-10" x="1062.61" y="370.67" width="67.16" height="12.33"/>
+  </g>
+  <g id="Münzen">
+    <circle class="cls-6" cx="1095.43" cy="537.66" r="21.99"/>
+    <rect class="cls-9" x="1091.67" y="521.7" width="7.53" height="31.1"/>
+  </g>
+  <polygon id="Pfeil" points="933.48 854.71 956.91 816.41 910.04 816.41 933.48 854.71"/>
+  <g id="Produkthintergrund">
+    <rect class="cls-6" x="728.11" y="238.86" width="305.1" height="518.8" rx="62.81" ry="62.81"/>
+  </g>
+  <g id="Gelb">
+    <g>
+      <rect class="cls-13" x="789.03" y="269.41" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-4" x="789.01" y="284.51" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-13" x="798.53" y="265.82" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Gelb-2" data-name="Gelb">
+    <g>
+      <rect class="cls-13" x="868.59" y="269.28" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-4" x="868.57" y="284.39" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-13" x="878.09" y="265.7" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Gelb-3" data-name="Gelb">
+    <g>
+      <rect class="cls-13" x="948.59" y="268.67" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-4" x="948.57" y="283.77" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-13" x="958.09" y="265.08" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Blau">
+    <g>
+      <rect class="cls-11" x="787.91" y="348.45" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-3" x="787.89" y="363.56" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-11" x="797.41" y="344.87" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Blau-2" data-name="Blau">
+    <g>
+      <rect class="cls-11" x="868.59" y="348.43" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-3" x="868.57" y="363.54" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-11" x="878.09" y="344.85" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Blau-3" data-name="Blau">
+    <g>
+      <rect class="cls-11" x="948.25" y="348.43" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-3" x="948.23" y="363.54" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-11" x="957.75" y="344.85" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Blau-4" data-name="Blau">
+    <g>
+      <rect class="cls-5" x="788.68" y="429.75" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-12" x="788.66" y="444.86" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-5" x="798.17" y="426.17" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Blau-5" data-name="Blau">
+    <g>
+      <rect class="cls-5" x="868.8" y="428.52" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-12" x="868.78" y="443.62" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-5" x="878.3" y="424.93" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g>
+    <path id="Halterung" class="cls-2" d="M777.98,316.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-2" data-name="Halterung" class="cls-2" d="M857.98,316.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-3" data-name="Halterung" class="cls-2" d="M937.98,316.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+  </g>
+  <g id="Produktebenen">
+    <rect class="cls-9" x="753.37" y="314.7" width="249.19" height="8.85"/>
+  </g>
+  <g>
+    <path id="Halterung-4" data-name="Halterung" class="cls-2" d="M777.98,396.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-5" data-name="Halterung" class="cls-2" d="M857.98,396.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-6" data-name="Halterung" class="cls-2" d="M937.98,396.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+  </g>
+  <g id="Produktebenen-2" data-name="Produktebenen">
+    <rect class="cls-9" x="753.37" y="394.7" width="249.19" height="8.85"/>
+  </g>
+  <g>
+    <path id="Halterung-7" data-name="Halterung" class="cls-2" d="M777.98,476.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-8" data-name="Halterung" class="cls-2" d="M857.98,476.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-9" data-name="Halterung" class="cls-2" d="M937.98,476.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+  </g>
+  <g id="Produktebenen-3" data-name="Produktebenen">
+    <rect class="cls-9" x="753.37" y="474.7" width="249.19" height="8.85"/>
+  </g>
+  <g>
+    <path id="Halterung-10" data-name="Halterung" class="cls-2" d="M777.98,556.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-11" data-name="Halterung" class="cls-2" d="M857.98,556.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-12" data-name="Halterung" class="cls-2" d="M937.98,556.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+  </g>
+  <g id="Produktebenen-4" data-name="Produktebenen">
+    <rect class="cls-9" x="753.37" y="554.7" width="249.19" height="8.85"/>
+  </g>
+  <g>
+    <path id="Halterung-13" data-name="Halterung" class="cls-2" d="M777.98,636.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-14" data-name="Halterung" class="cls-2" d="M857.98,636.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-15" data-name="Halterung" class="cls-2" d="M937.98,636.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+  </g>
+  <g id="Produktebenen-5" data-name="Produktebenen">
+    <rect class="cls-9" x="753.37" y="634.7" width="249.19" height="8.85"/>
+  </g>
+  <g>
+    <path id="Halterung-16" data-name="Halterung" class="cls-2" d="M777.98,716.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-17" data-name="Halterung" class="cls-2" d="M857.98,716.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-18" data-name="Halterung" class="cls-2" d="M937.98,716.76c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+  </g>
+  <g id="Produktebenen-6" data-name="Produktebenen">
+    <rect class="cls-9" x="753.37" y="714.7" width="249.19" height="8.85"/>
+  </g>
+  <g id="Produkthintergrund-2" data-name="Produkthintergrund" class="cls-8">
+    <rect class="cls-6" x="394.66" y="238.86" width="305.1" height="518.8" rx="62.81" ry="62.81"/>
+  </g>
+  <line class="cls-1" x1="701.75" y1="627.24" x2="701.75" y2="420.47"/>
+</svg>
