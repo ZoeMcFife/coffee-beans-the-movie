@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Automat-Voll-offen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #3f3e3e;
+        stroke-linecap: round;
+        stroke-linejoin: bevel;
+        stroke-width: 10px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: #418fbf;
+      }
+
+      .cls-4 {
+        fill: #194073;
+      }
+
+      .cls-5 {
+        fill: #594834;
+      }
+
+      .cls-6 {
+        fill: #014034;
+      }
+
+      .cls-7 {
+        fill: #737373;
+      }
+
+      .cls-8 {
+        fill: #b4a3d9;
+      }
+
+      .cls-9 {
+        opacity: .65;
+      }
+
+      .cls-10 {
+        fill: #4d5d73;
+      }
+
+      .cls-11 {
+        fill: #404040;
+      }
+
+      .cls-12 {
+        fill: #8c8c8c;
+      }
+
+      .cls-13 {
+        fill: #215ba6;
+      }
+
+      .cls-14 {
+        fill: #163e8c;
+      }
+
+      .cls-15 {
+        fill: #bf984e;
+      }
+
+      .cls-2 {
+        stroke: #bfbfbf;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-16 {
+        fill: #02735e;
+      }
+
+      .cls-17 {
+        fill: #f2d399;
+      }
+
+      .cls-18 {
+        fill: #d9ad5b;
+      }
+    </style>
+  </defs>
+  <g id="Beine">
+    <rect class="cls-11" x="980.57" y="889.18" width="76.15" height="36"/>
+    <rect class="cls-11" x="787.32" y="889.18" width="76.15" height="36"/>
+  </g>
+  <path id="Körper" class="cls-8" d="M1110.35,185.68h-376.66c-23.48,0-42.51,19.03-42.51,42.51v620.34c0,11.95,4.94,22.75,12.88,30.47,2.41,2.92,5.52,5.25,9.06,6.73,6.09,3.38,13.1,5.3,20.56,5.3h376.66c23.48,0,42.51-19.03,42.51-42.51V228.19c0-23.48-19.03-42.51-42.51-42.51Z"/>
+  <rect id="Klappe" class="cls-7" x="789.14" y="791.81" width="265.53" height="61.53" rx="21.61" ry="21.61"/>
+  <g id="Bedienfeld">
+    <circle class="cls-7" cx="1064.19" cy="394.72" r="8.34"/>
+    <circle class="cls-7" cx="1084.62" cy="394.72" r="8.34"/>
+    <circle class="cls-7" cx="1105.04" cy="394.72" r="8.34"/>
+    <circle class="cls-7" cx="1064.19" cy="415.15" r="8.34"/>
+    <circle class="cls-7" cx="1084.62" cy="415.15" r="8.34"/>
+    <circle class="cls-7" cx="1105.04" cy="415.15" r="8.34"/>
+    <circle class="cls-7" cx="1064.19" cy="435.57" r="8.34"/>
+    <circle class="cls-7" cx="1084.62" cy="435.57" r="8.34"/>
+    <circle class="cls-7" cx="1084.62" cy="455.99" r="8.34"/>
+    <circle class="cls-7" cx="1105.04" cy="435.57" r="8.34"/>
+  </g>
+  <g id="Geldscheine">
+    <rect class="cls-7" x="1046.73" y="479.57" width="75.78" height="11.09"/>
+    <rect class="cls-11" x="1053.32" y="481.75" width="63" height="7.13"/>
+  </g>
+  <g id="Anzeige">
+    <rect class="cls-7" x="1046.73" y="355.67" width="75.78" height="18.62" rx="4.79" ry="4.79"/>
+    <rect class="cls-12" x="1051.04" y="358.82" width="67.16" height="12.33"/>
+  </g>
+  <g id="Münzen">
+    <circle class="cls-7" cx="1083.86" cy="525.81" r="21.99"/>
+    <rect class="cls-11" x="1080.09" y="509.85" width="7.53" height="31.1"/>
+  </g>
+  <polygon id="Pfeil" points="921.9 842.86 945.34 804.56 898.47 804.56 921.9 842.86"/>
+  <g id="Produkthintergrund">
+    <rect class="cls-7" x="721.14" y="223.94" width="305.1" height="518.8" rx="62.81" ry="62.81"/>
+  </g>
+  <g id="Gelb">
+    <g>
+      <rect class="cls-18" x="777.13" y="255.34" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-5" x="777.11" y="270.44" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-18" x="786.63" y="251.75" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Gelb-2" data-name="Gelb">
+    <g>
+      <rect class="cls-18" x="856.69" y="255.21" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-5" x="856.67" y="270.32" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-18" x="866.19" y="251.63" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Gelb-3" data-name="Gelb">
+    <g>
+      <rect class="cls-18" x="936.69" y="254.6" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-5" x="936.67" y="269.7" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-18" x="946.19" y="251.01" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Blau">
+    <g>
+      <rect class="cls-14" x="776.72" y="337.45" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-3" x="776.7" y="352.55" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-14" x="786.22" y="333.86" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Blau-2" data-name="Blau">
+    <g>
+      <rect class="cls-14" x="857.4" y="337.42" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-3" x="857.38" y="352.53" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-14" x="866.9" y="333.84" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Blau-3" data-name="Blau">
+    <g>
+      <rect class="cls-14" x="937.06" y="337.42" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-3" x="937.04" y="352.53" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-14" x="946.56" y="333.84" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Blau-4" data-name="Blau">
+    <g>
+      <rect class="cls-6" x="778.02" y="417.71" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-16" x="778" y="432.82" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-6" x="787.51" y="414.13" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Blau-5" data-name="Blau">
+    <g>
+      <rect class="cls-6" x="858.15" y="416.48" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-16" x="858.13" y="431.58" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-6" x="867.64" y="412.89" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g id="Blau-6" data-name="Blau">
+    <g>
+      <rect class="cls-6" x="937.66" y="417.09" width="24.91" height="46.21" rx="4.11" ry="4.11"/>
+      <rect class="cls-16" x="937.64" y="432.2" width="24.93" height="15.45"/>
+    </g>
+    <rect class="cls-6" x="947.15" y="413.51" width="5.9" height="3.82" rx=".69" ry=".69"/>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-13" x="765.42" y="497.14" width="46.64" height="46.21"/>
+      <rect class="cls-4" x="765.46" y="497.15" width="46.56" height="4.43"/>
+      <rect class="cls-4" x="765.42" y="538.92" width="46.64" height="4.43"/>
+    </g>
+    <circle class="cls-10" cx="788.74" cy="520.24" r="13.57"/>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-13" x="845.33" y="496.8" width="46.64" height="46.21"/>
+      <rect class="cls-4" x="845.37" y="496.81" width="46.56" height="4.43"/>
+      <rect class="cls-4" x="845.33" y="538.58" width="46.64" height="4.43"/>
+    </g>
+    <circle class="cls-10" cx="868.65" cy="519.9" r="13.57"/>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-13" x="926.01" y="496.8" width="46.64" height="46.21"/>
+      <rect class="cls-4" x="926.05" y="496.81" width="46.56" height="4.43"/>
+      <rect class="cls-4" x="926.01" y="538.58" width="46.64" height="4.43"/>
+    </g>
+    <circle class="cls-10" cx="949.33" cy="519.9" r="13.57"/>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-5" x="766.31" y="576.56" width="46.64" height="46.21"/>
+      <rect class="cls-18" x="766.35" y="576.58" width="46.56" height="4.43"/>
+      <rect class="cls-18" x="766.31" y="618.34" width="46.64" height="4.43"/>
+    </g>
+    <circle class="cls-17" cx="789.63" cy="599.67" r="13.57"/>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-5" x="926.06" y="576.66" width="46.64" height="46.21"/>
+      <rect class="cls-18" x="926.1" y="576.68" width="46.56" height="4.43"/>
+      <rect class="cls-18" x="926.06" y="618.45" width="46.64" height="4.43"/>
+    </g>
+    <circle class="cls-17" cx="949.38" cy="599.77" r="13.57"/>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-5" x="845.89" y="576.41" width="46.64" height="46.21"/>
+      <rect class="cls-18" x="845.93" y="576.42" width="46.56" height="4.43"/>
+      <rect class="cls-18" x="845.89" y="618.19" width="46.64" height="4.43"/>
+    </g>
+    <circle class="cls-17" cx="869.21" cy="599.51" r="13.57"/>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-5" x="861.19" y="650.46" width="16.17" height="52.38"/>
+      <rect class="cls-15" x="861.21" y="699.87" width="16.13" height="2.98"/>
+      <rect class="cls-15" x="861.18" y="650.46" width="16.18" height="2.98"/>
+    </g>
+    <polygon class="cls-15" points="869.27 672.81 865.23 675.74 866.77 680.49 871.77 680.49 873.31 675.74 869.27 672.81"/>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-5" x="941.87" y="649.95" width="16.17" height="52.38"/>
+      <rect class="cls-15" x="941.89" y="699.36" width="16.13" height="2.98"/>
+      <rect class="cls-15" x="941.86" y="649.94" width="16.18" height="2.98"/>
+    </g>
+    <polygon class="cls-15" points="949.95 672.3 945.91 675.23 947.45 679.98 952.45 679.98 953.99 675.23 949.95 672.3"/>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-5" x="780.88" y="650.57" width="16.17" height="52.38"/>
+      <rect class="cls-15" x="780.9" y="699.98" width="16.13" height="2.98"/>
+      <rect class="cls-15" x="780.87" y="650.57" width="16.18" height="2.98"/>
+    </g>
+    <polygon class="cls-15" points="788.96 672.92 784.92 675.85 786.46 680.6 791.46 680.6 793 675.85 788.96 672.92"/>
+  </g>
+  <g>
+    <path id="Halterung" class="cls-2" d="M766.41,304.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-2" data-name="Halterung" class="cls-2" d="M846.41,304.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-3" data-name="Halterung" class="cls-2" d="M926.41,304.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+  </g>
+  <g id="Produktebenen">
+    <rect class="cls-11" x="741.8" y="302.85" width="249.19" height="8.85"/>
+  </g>
+  <g>
+    <path id="Halterung-4" data-name="Halterung" class="cls-2" d="M766.41,384.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-5" data-name="Halterung" class="cls-2" d="M846.41,384.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-6" data-name="Halterung" class="cls-2" d="M926.41,384.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+  </g>
+  <g id="Produktebenen-2" data-name="Produktebenen">
+    <rect class="cls-11" x="741.8" y="382.85" width="249.19" height="8.85"/>
+  </g>
+  <g>
+    <path id="Halterung-7" data-name="Halterung" class="cls-2" d="M766.41,464.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-8" data-name="Halterung" class="cls-2" d="M846.41,464.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-9" data-name="Halterung" class="cls-2" d="M926.41,464.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+  </g>
+  <g id="Produktebenen-3" data-name="Produktebenen">
+    <rect class="cls-11" x="741.8" y="462.85" width="249.19" height="8.85"/>
+  </g>
+  <g>
+    <path id="Halterung-10" data-name="Halterung" class="cls-2" d="M766.41,544.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-11" data-name="Halterung" class="cls-2" d="M846.41,544.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-12" data-name="Halterung" class="cls-2" d="M926.41,544.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+  </g>
+  <g id="Produktebenen-4" data-name="Produktebenen">
+    <rect class="cls-11" x="741.8" y="542.85" width="249.19" height="8.85"/>
+  </g>
+  <g>
+    <path id="Halterung-13" data-name="Halterung" class="cls-2" d="M766.41,624.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-14" data-name="Halterung" class="cls-2" d="M846.41,624.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-15" data-name="Halterung" class="cls-2" d="M926.41,624.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+  </g>
+  <g id="Produktebenen-5" data-name="Produktebenen">
+    <rect class="cls-11" x="741.8" y="622.85" width="249.19" height="8.85"/>
+  </g>
+  <g>
+    <path id="Halterung-16" data-name="Halterung" class="cls-2" d="M766.41,704.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-17" data-name="Halterung" class="cls-2" d="M846.41,704.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+    <path id="Halterung-18" data-name="Halterung" class="cls-2" d="M926.41,704.92c0-12.53,10.15-22.68,22.68-22.68s22.68,10.15,22.68,22.68"/>
+  </g>
+  <g id="Produktebenen-6" data-name="Produktebenen">
+    <rect class="cls-11" x="741.8" y="702.85" width="249.19" height="8.85"/>
+  </g>
+  <g id="Produkthintergrund-2" data-name="Produkthintergrund" class="cls-9">
+    <rect class="cls-7" x="385.21" y="225.92" width="305.1" height="518.8" rx="62.81" ry="62.81"/>
+  </g>
+  <line class="cls-1" x1="690.31" y1="614.31" x2="690.31" y2="407.54"/>
+</svg>
