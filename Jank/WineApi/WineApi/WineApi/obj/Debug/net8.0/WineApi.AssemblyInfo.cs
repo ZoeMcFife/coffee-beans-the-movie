@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WineApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c755d5e18191895f95980ac77c6c606beef9e35")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa38d81dc14c43781591d6196eee37f4e11431f5")]
 [assembly: System.Reflection.AssemblyProductAttribute("WineApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WineApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
