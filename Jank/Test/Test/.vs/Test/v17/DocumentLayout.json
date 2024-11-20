@@ -1,0 +1,245 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\model\\additive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\model\\additive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\model\\wine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\model\\wine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\model\\mosttreatment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\model\\mosttreatment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\model\\fermentation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\model\\fermentation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\controllers\\mosttreatmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\controllers\\mosttreatmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\controllers\\additivecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\controllers\\additivecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\controllers\\winecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\controllers\\winecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\controllers\\fermentationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\controllers\\fermentationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|c:\\github\\coffee-beans-the-movie\\jank\\test\\test\\test\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8C56DC0-28B3-4BAA-8066-7F7D2982F826}|Test\\Test.csproj|solutionrelative:test\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FermentationController.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Controllers\\FermentationController.cs",
+              "RelativeDocumentMoniker": "Test\\Controllers\\FermentationController.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Controllers\\FermentationController.cs",
+              "RelativeToolTip": "Test\\Controllers\\FermentationController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T09:32:15.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Wine.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Model\\Wine.cs",
+              "RelativeDocumentMoniker": "Test\\Model\\Wine.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Model\\Wine.cs",
+              "RelativeToolTip": "Test\\Model\\Wine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:39:12.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Additive.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Model\\Additive.cs",
+              "RelativeDocumentMoniker": "Test\\Model\\Additive.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Model\\Additive.cs",
+              "RelativeToolTip": "Test\\Model\\Additive.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:39:40.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Test\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Test\\Controllers\\UserController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAA4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T09:32:29.543Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MostTreatmentController.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Controllers\\MostTreatmentController.cs",
+              "RelativeDocumentMoniker": "Test\\Controllers\\MostTreatmentController.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Controllers\\MostTreatmentController.cs",
+              "RelativeToolTip": "Test\\Controllers\\MostTreatmentController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:55:02.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MostTreatment.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Model\\MostTreatment.cs",
+              "RelativeDocumentMoniker": "Test\\Model\\MostTreatment.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Model\\MostTreatment.cs",
+              "RelativeToolTip": "Test\\Model\\MostTreatment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:49:41.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Fermentation.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Model\\Fermentation.cs",
+              "RelativeDocumentMoniker": "Test\\Model\\Fermentation.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Model\\Fermentation.cs",
+              "RelativeToolTip": "Test\\Model\\Fermentation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:41:46.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Model\\User.cs",
+              "RelativeDocumentMoniker": "Test\\Model\\User.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Model\\User.cs",
+              "RelativeToolTip": "Test\\Model\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:42:24.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "WineController.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Controllers\\WineController.cs",
+              "RelativeDocumentMoniker": "Test\\Controllers\\WineController.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Controllers\\WineController.cs",
+              "RelativeToolTip": "Test\\Controllers\\WineController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:54:42.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AdditiveController.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Controllers\\AdditiveController.cs",
+              "RelativeDocumentMoniker": "Test\\Controllers\\AdditiveController.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Controllers\\AdditiveController.cs",
+              "RelativeToolTip": "Test\\Controllers\\AdditiveController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T09:31:55.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "Test\\WeatherForecast.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\WeatherForecast.cs",
+              "RelativeToolTip": "Test\\WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T09:44:45.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Program.cs",
+              "RelativeDocumentMoniker": "Test\\Program.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Program.cs",
+              "RelativeToolTip": "Test\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T09:44:49.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Test\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\Test\\Test\\Test\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Test\\Properties\\launchSettings.json",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-20T09:45:30.183Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

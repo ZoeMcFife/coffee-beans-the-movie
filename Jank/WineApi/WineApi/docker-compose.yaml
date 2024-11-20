@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  webapi:
+    build:
+      context: .
+      dockerfile: WineApi\Dockerfile
+    ports:
+      - "5000:80"  # Maps host port 5000 to container port 80
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=User ID=wineAdmin;Password=12345678;Server=db;Port=5432;Database=WineDb;Integrated Security=true;Pooling=true;
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest  # PostgreSQL container image
+    environment:
+      POSTGRES_USER: wineAdmin
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: WineDb
+    ports:
+      - "5432:5432"  # Maps host port 5432 to container port 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist database data
+
+  adminer:
+    image: adminer  # Adminer container image
+    restart: always
+    ports:
+      - "8080:8080"  # Maps host port 8080 to Adminer container port
+    depends_on:
+      - db
+
+volumes:
+  postgres_data: {}  # Volume for persisting PostgreSQL data
