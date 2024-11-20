@@ -1,7 +1,7 @@
 services:
   wineapi:
     image: wineapi:dev
-    container_name: "WineApi"
+    container_name: "WineApi_1"
     build:
       args:
         LAUNCHING_FROM_VS: true
