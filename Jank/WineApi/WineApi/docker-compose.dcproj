@@ -6,7 +6,7 @@
     <DockerPublishLocally>False</DockerPublishLocally>
     <ProjectGuid>f98e5b8f-b970-464a-a206-ff4b491c9559</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://localhost:443/swagger</DockerServiceUrl>
     <DockerServiceName>wineapi</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
