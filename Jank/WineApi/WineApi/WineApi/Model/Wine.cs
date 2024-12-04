@@ -13,9 +13,9 @@
         public string Container { get; set; } // Gebinde
         public string ProductionType { get; set; } // Bio, Konver., Biodyn
 
-        public int MostTreatmentId { get; set; }
+        public int? MostTreatmentId { get; set; }
 
-        public MostTreatment MostTreatment { get; set; } // Mostschönung details
+        public MostTreatment? MostTreatment { get; set; } // Mostschönung details
         public List<FermentationEntry> FermentationEntries { get; set; } // Gärkontrolle details
         public List<Additive> Additives { get; set; } // Zusätze list
     }

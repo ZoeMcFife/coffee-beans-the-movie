@@ -13,7 +13,7 @@
         public string Container { get; set; }
         public string ProductionType { get; set; } 
 
-        public int MostTreatmentId { get; set; }
+        public int? MostTreatmentId { get; set; }
 
         public static Wine MapDtoToWine(WineDTO wineDto)
         {
@@ -29,9 +29,7 @@
                 VolumeInHectoLitre = wineDto.VolumeInHectoLitre,
                 Container = wineDto.Container,
                 ProductionType = wineDto.ProductionType,
-                MostTreatment = new MostTreatment { Id = wineDto.MostTreatmentId },
-                FermentationEntries = new List<FermentationEntry>(),
-                Additives = new List<Additive>()
+                MostTreatmentId =wineDto.MostTreatmentId
             };
         }
 
@@ -49,6 +47,7 @@
                 VolumeInHectoLitre = wine.VolumeInHectoLitre,
                 Container = wine.Container,
                 ProductionType = wine.ProductionType,
+                MostTreatmentId = wine.MostTreatmentId
             };
         }
 

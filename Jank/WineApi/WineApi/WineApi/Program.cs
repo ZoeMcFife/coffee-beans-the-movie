@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using WineApi.Context;
 using Microsoft.AspNetCore.Identity;
+using WineApi.Seeder;
+
 namespace WineApi
 {
     public class Program
@@ -21,6 +23,13 @@ namespace WineApi
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<WineDbContext>();
+                var seeder = new DbSeeder(context);
+                seeder.Seed();
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

@@ -12,8 +12,8 @@ using WineApi.Context;
 namespace WineApi.Migrations
 {
     [DbContext(typeof(WineDbContext))]
-    [Migration("20241204115043_Initail")]
-    partial class Initail
+    [Migration("20241204143345_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
