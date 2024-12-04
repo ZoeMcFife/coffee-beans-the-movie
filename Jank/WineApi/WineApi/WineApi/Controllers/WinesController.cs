@@ -22,16 +22,6 @@ namespace WineApi.Controllers
             _context = context;
         }
 
-        // GET: api/Wines
-        [HttpGet("{userId}")]
-        public async Task<ActionResult<IEnumerable<WineDTO>>> GetWines(int userId)
-        {
-            return await _context.Wines
-                .Select(w => WineDTO.MapWineToDto(w))
-                .Where(w => w.UserId.Equals(userId))
-                .ToListAsync();
-        }
-
         // GET: api/Wines/5
         [HttpGet("{id}")]
         public async Task<ActionResult<WineDTO>> GetWine(int id)
