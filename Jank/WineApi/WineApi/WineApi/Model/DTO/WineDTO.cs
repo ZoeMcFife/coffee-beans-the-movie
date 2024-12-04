@@ -49,7 +49,6 @@
                 VolumeInHectoLitre = wine.VolumeInHectoLitre,
                 Container = wine.Container,
                 ProductionType = wine.ProductionType,
-                MostTreatmentId = wine.MostTreatment.Id  
             };
         }
 

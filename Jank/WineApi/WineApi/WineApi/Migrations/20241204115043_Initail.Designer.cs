@@ -12,8 +12,8 @@ using WineApi.Context;
 namespace WineApi.Migrations
 {
     [DbContext(typeof(WineDbContext))]
-    [Migration("20241204065407_updateduser")]
-    partial class updateduser
+    [Migration("20241204115043_Initail")]
+    partial class Initail
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -101,13 +101,7 @@ namespace WineApi.Migrations
                     b.Property<DateTime?>("TreatmentDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("WineId")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("WineId")
-                        .IsUnique();
 
                     b.ToTable("MostTreatments");
                 });
@@ -152,6 +146,9 @@ namespace WineApi.Migrations
                     b.Property<DateTime>("HarvestDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int>("MostTreatmentId")
+                        .HasColumnType("integer");
+
                     b.Property<float>("MostWeight")
                         .HasColumnType("real");
 
@@ -170,6 +167,8 @@ namespace WineApi.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MostTreatmentId");
 
                     b.HasIndex("UserId");
 
@@ -198,24 +197,21 @@ namespace WineApi.Migrations
                     b.Navigation("Wine");
                 });
 
-            modelBuilder.Entity("WineApi.Model.MostTreatment", b =>
+            modelBuilder.Entity("WineApi.Model.Wine", b =>
                 {
-                    b.HasOne("WineApi.Model.Wine", "Wine")
-                        .WithOne("MostTreatment")
-                        .HasForeignKey("WineApi.Model.MostTreatment", "WineId")
+                    b.HasOne("WineApi.Model.MostTreatment", "MostTreatment")
+                        .WithMany()
+                        .HasForeignKey("MostTreatmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Wine");
-                });
-
-            modelBuilder.Entity("WineApi.Model.Wine", b =>
-                {
                     b.HasOne("WineApi.Model.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("MostTreatment");
 
                     b.Navigation("User");
                 });
@@ -225,9 +221,6 @@ namespace WineApi.Migrations
                     b.Navigation("Additives");
 
                     b.Navigation("FermentationEntries");
-
-                    b.Navigation("MostTreatment")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

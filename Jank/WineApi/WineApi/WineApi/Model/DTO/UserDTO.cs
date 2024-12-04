@@ -7,7 +7,7 @@
         public string Username { get; set; }
         public string Email { get; set; }
 
-        public static User MapDtoToWine(UserDTO userDto)
+        public static User MapDtoToUser(UserDTO userDto)
         {
             if (userDto == null) throw new ArgumentNullException(nameof(userDto));
 
@@ -19,7 +19,7 @@
             };
         }
 
-        public static UserDTO MapWineToDto(User user)
+        public static UserDTO MapUserToDto(User user)
         {
             if (user == null) throw new ArgumentNullException(nameof(user));
 

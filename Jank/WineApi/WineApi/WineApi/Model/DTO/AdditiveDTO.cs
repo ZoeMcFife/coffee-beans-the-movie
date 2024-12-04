@@ -25,7 +25,7 @@
                 AmountGrammsPerLitre = dto.AmountGrammsPerLitre,
                 AmountGrammsPerHectoLitre = dto.AmountGrammsPerHectoLitre,
                 AmountGrammsPer1000Litre = dto.AmountGrammsPer1000Litre,
-                Wine = null // Set to null; can be populated later if necessary
+                WineId = dto.WineId // Set to null; can be populated later if necessary
             };
         }
 
