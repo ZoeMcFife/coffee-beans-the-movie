@@ -32,3 +32,11 @@ C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\WineApi.pdb
 C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\obj\Debug\docker-c.35A3FFBA.Up2Date
+C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\Microsoft.IdentityModel.Abstractions.dll

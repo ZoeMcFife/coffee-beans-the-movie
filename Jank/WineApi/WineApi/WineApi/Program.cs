@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using WineApi.Context;
 using Microsoft.AspNetCore.Identity;
 using WineApi.Seeder;
+using Microsoft.IdentityModel.JsonWebTokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace WineApi
 {
@@ -22,12 +26,31 @@ namespace WineApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    ValidAudience = builder.Configuration["Jwt:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+                };
+            });
+
             var app = builder.Build();
 
-            using (var scope = app.Services.CreateScope())
+           using (var scope = app.Services.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<WineDbContext>();
-                var seeder = new DbSeeder(context);
+                var configuration = scope.ServiceProvider.GetService<IConfiguration>();
+                var seeder = new DbSeeder(context, configuration);
                 seeder.Seed();
             }
 

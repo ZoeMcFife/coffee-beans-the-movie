@@ -1,58 +1,86 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
+using System.Text;
 using WineApi.Model;
+using WineApi.Model.DTO;
 
 namespace WineApi.Seeder
 {
     public class DbSeeder
     {
         private readonly DbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public DbSeeder(DbContext context)
+        public DbSeeder(DbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         public void Seed()
         {
             // Seed Users
             var users = GenerateUsers(10);
-            var mostTreatments = GenerateMostTreatments(100);
-            var wines = GenerateWines(100, users, mostTreatments);
-            var fermentationEntries = GenerateFermentationEntries(300, wines);
-            var additives = GenerateAdditives(60, wines);
-
-
             _context.Set<User>().AddRange(users);
-            _context.SaveChanges();
+            _context.SaveChanges(); // Save to generate IDs
+
+            // Replace users list with seeded records from the database
+            users = _context.Set<User>().ToList();
 
             // Seed Most Treatments
+            var mostTreatments = GenerateMostTreatments(100);
             _context.Set<MostTreatment>().AddRange(mostTreatments);
-            _context.SaveChanges();
+            _context.SaveChanges(); // Save to generate IDs
+
+            // Replace mostTreatments list with seeded records from the database
+            mostTreatments = _context.Set<MostTreatment>().ToList();
 
             // Seed Wines
+            var wines = GenerateWines(100, users, mostTreatments);
             _context.Set<Wine>().AddRange(wines);
-            _context.SaveChanges();
+            _context.SaveChanges(); // Save to generate IDs
+
+            // Replace wines list with seeded records from the database
+            wines = _context.Set<Wine>().ToList();
 
             // Seed Fermentation Entries
+            var fermentationEntries = GenerateFermentationEntries(300, wines);
             _context.Set<FermentationEntry>().AddRange(fermentationEntries);
-            _context.SaveChanges();
+            _context.SaveChanges(); // Save to generate IDs
+
+            // Replace fermentationEntries list with seeded records from the database
+            fermentationEntries = _context.Set<FermentationEntry>().ToList();
 
             // Seed Additives
+            var additives = GenerateAdditives(60, wines);
             _context.Set<Additive>().AddRange(additives);
-            _context.SaveChanges();
+            _context.SaveChanges(); // Save to generate IDs
+
+            // Replace additives list with seeded records from the database
+            additives = _context.Set<Additive>().ToList();
+
         }
 
         private List<User> GenerateUsers(int count)
         {
             var users = new List<User>();
+
             for (int i = 1; i <= count; i++)
             {
-                users.Add(new User
+                // Hash the password
+                var hashedPassword = HashPassword("password123");
+
+                // Create a new User
+                var newUser = new User
                 {
-                    Username = $"User{i}",
-                    Email = $"user{i}@example.com",
-                    Password = "Password123!"
-                });
+                    Username = "testUser" + i,
+                    Password = hashedPassword,
+                    Email = "testUser" + i + "@gmail.com"
+                };
+
+                // Save to database
+                users.Add(newUser);
+                
             }
             return users;
         }
@@ -71,7 +99,7 @@ namespace WineApi.Seeder
                     VolumeInHectoLitre = (float)(random.NextDouble() * 100),
                     Container = $"Container {i}",
                     ProductionType = "Bio",
-                    UserId = users[random.Next(users.Count)].Id,
+                    UserId = users[random.Next(users.Count - 1)].Id,
                     MostTreatmentId = mostTreatments[i - 1].Id
                 });
             }
@@ -91,6 +119,14 @@ namespace WineApi.Seeder
                 });
             }
             return treatments;
+        }
+
+        private string HashPassword(string password)
+        {
+            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]); // Use a key from configuration
+            using var hmac = new HMACSHA256(key);
+            var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+            return Convert.ToBase64String(hash);
         }
 
         private List<FermentationEntry> GenerateFermentationEntries(int count, List<Wine> wines)

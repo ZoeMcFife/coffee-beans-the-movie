@@ -9,7 +9,7 @@ services:
       - "443:5001"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=User ID=wineAdmin;Password=12345678;Server=db;Port=5432;Database=WineDb;Pooling=true;
+      - ConnectionStrings__DefaultConnection=User ID=wineAdmin;Password=12345678;Server=db;Port=5432;Database=WineDb;Pooling=true;Include Error Detail=True
     depends_on:
       - db
 
