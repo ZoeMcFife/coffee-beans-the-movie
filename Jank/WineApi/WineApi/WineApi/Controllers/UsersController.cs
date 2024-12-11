@@ -58,16 +58,22 @@ namespace WineApi.Controllers
 
         // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserDTO>>> GetUsers()
+        [Authorize]
+        public async Task<ActionResult<UserDTO>> GetUser()
         {
-            return await _context.Users.Select(f => UserDTO.MapUserToDto(f)).ToListAsync();
-        }
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(); // Return 401 if no userId claim is found
+            }
 
-        // GET: api/Users/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<UserDTO>> GetUser(int id)
-        {
-            var user = await _context.Users.FindAsync(id);
+            // Parse the userId from the claim
+            if (!int.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID in token.");
+            }
+
+            var user = await _context.Users.FindAsync(userId);
 
             if (user == null)
             {
@@ -77,53 +83,24 @@ namespace WineApi.Controllers
             return UserDTO.MapUserToDto(user);
         }
 
-        // PUT: api/Users/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, UserDTO user)
-        {
-            if (id != user.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(user).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Users
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
-        {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
-        }
-
         // DELETE: api/Users/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        [HttpDelete]
+        [Authorize]
+        public async Task<IActionResult> DeleteUser()
         {
-            var user = await _context.Users.FindAsync(id);
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(); // Return 401 if no userId claim is found
+            }
+
+            // Parse the userId from the claim
+            if (!int.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID in token.");
+            }
+
+            var user = await _context.Users.FindAsync(userId);
             if (user == null)
             {
                 return NotFound();
@@ -211,7 +188,7 @@ namespace WineApi.Controllers
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddHours(2),
+                expires: DateTime.Now.AddDays(31),
                 signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
