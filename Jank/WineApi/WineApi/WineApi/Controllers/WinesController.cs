@@ -24,6 +24,32 @@ namespace WineApi.Controllers
             _context = context;
         }
 
+        // GET: api/Users/Wines
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult<IEnumerable<WineDTO>>> GetWines()
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(); // Return 401 if no userId claim is found
+            }
+
+            // Parse the userId from the claim
+            if (!int.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID in token.");
+            }
+
+            var wines = await _context.Wines
+                .Where(w => w.UserId == userId)
+                .ToListAsync();  // Retrieve the wines for the authenticated user
+
+            var wineDtos = wines.Select(w => WineDTO.MapWineToDto(w)).ToList(); // Map to DTOs on the client side
+
+            return Ok(wineDtos);
+        }
+
         // GET: api/Wines/5
         [HttpGet("{id}")]
         [Authorize]
