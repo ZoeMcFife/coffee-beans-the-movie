@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,22 +23,44 @@ namespace WineApi.Controllers
             _context = context;
         }
 
-        // GET: api/FermentationEntries
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<FermentationEntryDTO>>> GetFermentationEntries()
-        {
-            return await _context.FermentationEntries.Select(f => FermentationEntryDTO.MapFermentationEntryToDto(f)).ToListAsync();
-        }
 
         // GET: api/FermentationEntries/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<FermentationEntryDTO>> GetFermentationEntry(int id)
         {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(); // Return 401 if no userId claim is found
+            }
+
+            // Parse the userId from the claim
+            if (!int.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID in token.");
+            }
+
             var fermentationEntry = await _context.FermentationEntries.FindAsync(id);
 
             if (fermentationEntry == null)
             {
                 return NotFound();
+            }
+
+            var wine = fermentationEntry.Wine;
+
+            if (wine != null)
+            {
+                if (wine.UserId != userId)
+                {
+                    return Unauthorized();
+                }
+            }
+
+            if (wine == null)
+            {
+                return NotFound(); // Return 404 if wine is not found
             }
 
             return FermentationEntryDTO.MapFermentationEntryToDto(fermentationEntry);
@@ -46,12 +69,41 @@ namespace WineApi.Controllers
         // PUT: api/FermentationEntries/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutFermentationEntry(int id, FermentationEntryDTO fermentationEntry)
         {
             if (id != fermentationEntry.Id)
             {
                 return BadRequest();
             }
+
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(); // Return 401 if no userId claim is found
+            }
+
+            // Parse the userId from the claim
+            if (!int.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID in token.");
+            }
+
+            var wine = _context.Wines.Find(fermentationEntry.WineId);
+
+            if (wine != null)
+            {
+                if (wine.UserId != userId)
+                {
+                    return Unauthorized();
+                }
+            }
+
+            if (wine == null)
+            {
+                return NotFound(); // Return 404 if wine is not found
+            }
+
 
             _context.Entry(FermentationEntryDTO.MapDtoToFermentationEntry(fermentationEntry)).State = EntityState.Modified;
 
@@ -77,8 +129,43 @@ namespace WineApi.Controllers
         // POST: api/FermentationEntries
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<FermentationEntryDTO>> PostFermentationEntry(FermentationEntryDTO fermentationEntry)
         {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(); // Return 401 if no userId claim is found
+            }
+
+            // Parse the userId from the claim
+            if (!int.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID in token.");
+            }
+
+
+            if (fermentationEntry == null)
+            {
+                return NotFound();
+            }
+
+
+            var wine = _context.Wines.Find(fermentationEntry.WineId);
+
+            if (wine != null)
+            {
+                if (wine.UserId != userId)
+                {
+                    return Unauthorized();
+                }
+            }
+
+            if (wine == null)
+            {
+                return NotFound(); // Return 404 if wine is not found
+            }
+
             _context.FermentationEntries.Add(FermentationEntryDTO.MapDtoToFermentationEntry(fermentationEntry));
             await _context.SaveChangesAsync();
 
@@ -87,12 +174,41 @@ namespace WineApi.Controllers
 
         // DELETE: api/FermentationEntries/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteFermentationEntry(int id)
         {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(); // Return 401 if no userId claim is found
+            }
+
+            // Parse the userId from the claim
+            if (!int.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID in token.");
+            }
+
+
             var fermentationEntry = await _context.FermentationEntries.FindAsync(id);
             if (fermentationEntry == null)
             {
                 return NotFound();
+            }
+
+            var wine = _context.Wines.Find(fermentationEntry.WineId);
+
+            if (wine != null)
+            {
+                if (wine.UserId != userId)
+                {
+                    return Unauthorized();
+                }
+            }
+
+            if (wine == null)
+            {
+                return NotFound(); // Return 404 if wine is not found
             }
 
             _context.FermentationEntries.Remove(fermentationEntry);

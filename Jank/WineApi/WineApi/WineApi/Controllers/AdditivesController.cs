@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,23 +23,45 @@ namespace WineApi.Controllers
             _context = context;
         }
 
-        // GET: api/Additives
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<AdditiveDTO>>> GetAdditives()
-        {
-            return await _context.Additives.Select(a => AdditiveDTO.MapAdditiveToDto(a)).ToListAsync();
-        }
-
         // GET: api/Additives/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<AdditiveDTO>> GetAdditive(int id)
         {
-            var additive = await _context.Additives.FindAsync(id);
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(); // Return 401 if no userId claim is found
+            }
+
+            // Parse the userId from the claim
+            if (!int.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID in token.");
+            }
+
+            var additive = await _context.Additives.Include(a => a.Wine).FirstOrDefaultAsync(a => a.Id == id);
 
             if (additive == null)
             {
                 return NotFound();
             }
+
+            var wine = additive.Wine;
+
+            if (wine != null)
+            {
+                if (wine.UserId != userId)
+                {
+                    return Unauthorized();
+                }
+            }
+
+            if (wine == null)
+            {
+                return NotFound(); // Return 404 if wine is not found
+            }
+
 
             return AdditiveDTO.MapAdditiveToDto(additive);
         }
@@ -46,6 +69,7 @@ namespace WineApi.Controllers
         // PUT: api/Additives/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutAdditive(int id, AdditiveDTO additive)
         {
             if (id != additive.Id)
@@ -53,7 +77,32 @@ namespace WineApi.Controllers
                 return BadRequest();
             }
 
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(); // Return 401 if no userId claim is found
+            }
 
+            // Parse the userId from the claim
+            if (!int.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID in token.");
+            }
+
+            var wine = _context.Wines.Find(additive.WineId);
+
+            if (wine == null)
+            {
+                return NotFound();
+            }
+
+            if (wine != null)
+            {
+                if (wine.UserId != userId)
+                {
+                    return Unauthorized();
+                }
+            }
 
             _context.Entry(AdditiveDTO.MapDtoToAdditive(additive)).State = EntityState.Modified;
 
@@ -79,8 +128,36 @@ namespace WineApi.Controllers
         // POST: api/Additives
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<AdditiveDTO>> PostAdditive(AdditiveDTO additive)
         {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(); // Return 401 if no userId claim is found
+            }
+
+            // Parse the userId from the claim
+            if (!int.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID in token.");
+            }
+
+            var wine = _context.Wines.Find(additive.WineId);
+
+            if (wine == null)
+            {
+                return NotFound();
+            }
+
+            if (wine != null)
+            {
+                if (wine.UserId != userId)
+                {
+                    return Unauthorized();
+                }
+            }
+
             _context.Additives.Add(AdditiveDTO.MapDtoToAdditive(additive));
             await _context.SaveChangesAsync();
 
@@ -89,12 +166,40 @@ namespace WineApi.Controllers
 
         // DELETE: api/Additives/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteAdditive(int id)
         {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(); // Return 401 if no userId claim is found
+            }
+
+            // Parse the userId from the claim
+            if (!int.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID in token.");
+            }
+
             var additive = await _context.Additives.FindAsync(id);
             if (additive == null)
             {
                 return NotFound();
+            }
+
+            var wine = _context.Wines.Find(additive.WineId);
+
+            if (wine == null)
+            {
+                return NotFound();
+            }
+
+            if (wine != null)
+            {
+                if (wine.UserId != userId)
+                {
+                    return Unauthorized();
+                }
             }
 
             _context.Additives.Remove(additive);
