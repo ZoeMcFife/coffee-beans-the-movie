@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|c:\\github\\coffee-beans-the-movie\\jank\\wineapi\\wineapi\\wineapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|solutionrelative:wineapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|c:\\github\\coffee-beans-the-movie\\jank\\wineapi\\wineapi\\wineapi\\controllers\\winescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|solutionrelative:wineapi\\controllers\\winescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|c:\\github\\coffee-beans-the-movie\\jank\\wineapi\\wineapi\\wineapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|solutionrelative:wineapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|c:\\github\\coffee-beans-the-movie\\jank\\wineapi\\wineapi\\wineapi\\controllers\\winescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|solutionrelative:wineapi\\controllers\\winescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|c:\\github\\coffee-beans-the-movie\\jank\\wineapi\\wineapi\\wineapi\\controllers\\fermentationentriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|solutionrelative:wineapi\\controllers\\fermentationentriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|c:\\github\\coffee-beans-the-movie\\jank\\wineapi\\wineapi\\wineapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|solutionrelative:wineapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|c:\\github\\coffee-beans-the-movie\\jank\\wineapi\\wineapi\\wineapi\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -57,10 +61,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|c:\\github\\coffee-beans-the-movie\\jank\\wineapi\\wineapi\\wineapi\\controllers\\additivescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|solutionrelative:wineapi\\controllers\\additivescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|c:\\github\\coffee-beans-the-movie\\jank\\wineapi\\wineapi\\wineapi\\controllers\\fermentationentriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|solutionrelative:wineapi\\controllers\\fermentationentriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B24A9DEC-4D01-48DC-A7C9-656948629F43}|WineApi\\WineApi.csproj|c:\\github\\coffee-beans-the-movie\\jank\\wineapi\\wineapi\\wineapi\\model\\dto\\userregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -137,24 +137,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AdditiveDTO.cs",
-              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Model\\DTO\\AdditiveDTO.cs",
-              "RelativeDocumentMoniker": "WineApi\\Model\\DTO\\AdditiveDTO.cs",
-              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Model\\DTO\\AdditiveDTO.cs",
-              "RelativeToolTip": "WineApi\\Model\\DTO\\AdditiveDTO.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T07:05:39.363Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "WineDTO.cs",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Model\\DTO\\WineDTO.cs",
               "RelativeDocumentMoniker": "WineApi\\Model\\DTO\\WineDTO.cs",
@@ -167,7 +158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Additive.cs",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Model\\Additive.cs",
               "RelativeDocumentMoniker": "WineApi\\Model\\Additive.cs",
@@ -180,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Wine.cs",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Model\\Wine.cs",
               "RelativeDocumentMoniker": "WineApi\\Model\\Wine.cs",
@@ -193,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Model\\User.cs",
               "RelativeDocumentMoniker": "WineApi\\Model\\User.cs",
@@ -206,13 +197,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "WinesController.cs",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Controllers\\WinesController.cs",
               "RelativeDocumentMoniker": "WineApi\\Controllers\\WinesController.cs",
               "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Controllers\\WinesController.cs",
               "RelativeToolTip": "WineApi\\Controllers\\WinesController.cs",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAcwKoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwCYAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T07:16:22.619Z",
               "EditorCaption": ""
@@ -223,33 +214,55 @@
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "WineApi\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "WineApi\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAYwNQAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Controllers\\UsersController.cs*",
+              "RelativeToolTip": "WineApi\\Controllers\\UsersController.cs*",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-04T10:20:12.501Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Program.cs",
               "RelativeDocumentMoniker": "WineApi\\Program.cs",
               "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Program.cs",
               "RelativeToolTip": "WineApi\\Program.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwCsAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwC0AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T11:41:34.989Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FermentationEntriesController.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Controllers\\FermentationEntriesController.cs",
+              "RelativeDocumentMoniker": "WineApi\\Controllers\\FermentationEntriesController.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Controllers\\FermentationEntriesController.cs",
+              "RelativeToolTip": "WineApi\\Controllers\\FermentationEntriesController.cs",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAcwJ0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T07:23:39.032Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "AdditiveDTO.cs",
+              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Model\\DTO\\AdditiveDTO.cs",
+              "RelativeDocumentMoniker": "WineApi\\Model\\DTO\\AdditiveDTO.cs",
+              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Model\\DTO\\AdditiveDTO.cs",
+              "RelativeToolTip": "WineApi\\Model\\DTO\\AdditiveDTO.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T07:05:39.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "MostTreatmentDTO.cs",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Model\\DTO\\MostTreatmentDTO.cs",
               "RelativeDocumentMoniker": "WineApi\\Model\\DTO\\MostTreatmentDTO.cs",
@@ -262,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "UserDTO.cs",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Model\\DTO\\UserDTO.cs",
               "RelativeDocumentMoniker": "WineApi\\Model\\DTO\\UserDTO.cs",
@@ -275,7 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\appsettings.json",
               "RelativeDocumentMoniker": "WineApi\\appsettings.json",
@@ -288,7 +301,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\docker-compose.yml",
               "RelativeDocumentMoniker": "docker-compose.yml",
@@ -301,7 +314,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "docker-compose.override.yml",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\docker-compose.override.yml",
               "RelativeDocumentMoniker": "docker-compose.override.yml",
@@ -327,7 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "AdditivesController.cs",
               "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Controllers\\AdditivesController.cs",
               "RelativeDocumentMoniker": "WineApi\\Controllers\\AdditivesController.cs",
@@ -336,19 +349,6 @@
               "ViewState": "AgIAACIAAAAAAAAAAAAAADUAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T07:24:08.539Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "FermentationEntriesController.cs",
-              "DocumentMoniker": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Controllers\\FermentationEntriesController.cs",
-              "RelativeDocumentMoniker": "WineApi\\Controllers\\FermentationEntriesController.cs",
-              "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Controllers\\FermentationEntriesController.cs",
-              "RelativeToolTip": "WineApi\\Controllers\\FermentationEntriesController.cs",
-              "ViewState": "AgIAAJIAAAAAAAAAAAAcwJ0AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T07:23:39.032Z",
               "EditorCaption": ""
             },
             {

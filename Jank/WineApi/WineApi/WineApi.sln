@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WineApi", "WineApi\WineApi.
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F98E5B8F-B970-464A-A206-FF4B491C9559}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeinManagementUnitTests", "..\WeinManagementUnitTests\WeinManagementUnitTests.csproj", "{8DBC752B-13E5-4711-A1B9-9F43AFE328EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F98E5B8F-B970-464A-A206-FF4B491C9559}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F98E5B8F-B970-464A-A206-FF4B491C9559}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F98E5B8F-B970-464A-A206-FF4B491C9559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DBC752B-13E5-4711-A1B9-9F43AFE328EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DBC752B-13E5-4711-A1B9-9F43AFE328EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DBC752B-13E5-4711-A1B9-9F43AFE328EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DBC752B-13E5-4711-A1B9-9F43AFE328EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
