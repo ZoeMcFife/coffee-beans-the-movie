@@ -2,7 +2,15 @@
 
 ## Docker Container
 
+**First Build the Docker Container**
+- execute `update-database.bat`
+- execute `build.bat`
 - execute `run.bat` file
+
+**Afterwards; you only need to run it via the bat file or in docker.**
+
+- execute `run.bat` file
+
 - enjoy!
 
 ## Database
@@ -24,7 +32,7 @@
 - Login with a user
 - Default User:
     - testUser1@gmail.com
-    - Password123
+    - password123
 
 - You'll get a jwt Token in return
 - Use that to authorize further requests! 
