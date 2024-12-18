@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
+using WineApi.Context;
 using WineApi.Model;
 using WineApi.Model.DTO;
 
@@ -8,17 +9,26 @@ namespace WineApi.Seeder
 {
     public class DbSeeder
     {
-        private readonly DbContext _context;
+        private readonly WineDbContext _context;
         private readonly IConfiguration _configuration;
 
-        public DbSeeder(DbContext context, IConfiguration configuration)
+        public DbSeeder(WineDbContext context, IConfiguration configuration)
         {
             _context = context;
             _configuration = configuration;
         }
 
         public void Seed()
-        {
+        {   
+            var usersAmount = _context.Users.Count();
+
+            Console.WriteLine(usersAmount);
+
+            if (usersAmount > 0)
+            {
+                return;
+            }
+
             // Seed Users
             var users = GenerateUsers(10);
             _context.Set<User>().AddRange(users);
