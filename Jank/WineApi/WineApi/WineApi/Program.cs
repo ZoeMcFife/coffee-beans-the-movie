@@ -77,7 +77,11 @@ namespace WineApi
             using (var scope = app.Services.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<WineDbContext>();
+                
+                context.Database.Migrate();
+               
                 var configuration = scope.ServiceProvider.GetService<IConfiguration>();
+
                 var seeder = new DbSeeder(context, configuration);
 
                 seeder.Seed();

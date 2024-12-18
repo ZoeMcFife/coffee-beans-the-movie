@@ -2,15 +2,7 @@
 
 ## Docker Container
 
-**First Build the Docker Container**
-- execute `update-database.bat`
-- execute `build.bat`
 - execute `run.bat` file
-
-**Afterwards; you only need to run it via the bat file or in docker.**
-
-- execute `run.bat` file
-
 - enjoy!
 
 ## Database
@@ -25,7 +17,7 @@
 
 ## Swagger
 
-- open `https://localhost:443\swagger` for [Swagger](https://localhost:443/swagger)
+- open `https://localhost:443/swagger` for [Swagger](https://localhost:443/swagger)
 
 ## How to use the Api
 
