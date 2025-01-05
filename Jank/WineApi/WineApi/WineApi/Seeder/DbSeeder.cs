@@ -165,7 +165,6 @@ namespace WineApi.Seeder
                 {
                     Type = "Sulfur",
                     Date = DateTime.Now.AddDays(-random.Next(1, 365)).ToUniversalTime(),
-                    Time = DateTime.Now.ToString("HH:mm"),
                     AmountGrammsPerLitre = (float)(random.NextDouble() * 10),
                     AmountGrammsPerHectoLitre = (float)(random.NextDouble() * 10),
                     AmountGrammsPer1000Litre = (float)(random.NextDouble() * 10),

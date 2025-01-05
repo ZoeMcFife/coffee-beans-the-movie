@@ -155,6 +155,8 @@ namespace WineApi.Controllers
                 return BadRequest("Invalid user ID in token.");
             }
 
+            wine.UserId = userId;
+
             if (wine.UserId != userId)
             {
                 return Unauthorized();

@@ -3,9 +3,9 @@
 ## Docker Container
 
 **First Build the Docker Container**
-- execute `update-database.bat`
+- execute `update-database.bat` (note: Connection error might pop up, can be ignored. if test data isn't in database, run this again!)
 - execute `build.bat`
-- execute `run.bat` file
+- (execute `run.bat` file) (not needed after build, since container is running)
 
 **Afterwards; you only need to run it via the bat file or in docker.**
 

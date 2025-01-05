@@ -42,10 +42,6 @@ namespace WineApi.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Time")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("text");
