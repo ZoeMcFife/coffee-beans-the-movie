@@ -1,0 +1,36 @@
+services:
+  wineapi:
+    image: ${DOCKER_REGISTRY-}wineapi
+    build:
+      context: .
+      dockerfile: WineApi/Dockerfile
+    ports:
+      - "80:5000"
+      - "443:5001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=User ID=wineAdmin;Password=12345678;Server=db;Port=5432;Database=WineDb;Pooling=true;Include Error Detail=True
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest 
+    environment:
+      POSTGRES_USER: wineAdmin
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: WineDb
+    ports:
+      - "5432:5432"  
+    volumes:
+      - postgres_data:/var/lib/postgresql/data 
+
+  adminer:
+    image: adminer 
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
