@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\WineApi.csproj": {}
+    "X:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\WineApi.csproj": {}
   },
   "projects": {
-    "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\WineApi.csproj": {
+    "X:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\WineApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\WineApi.csproj",
+        "projectUniqueName": "X:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\WineApi.csproj",
         "projectName": "WineApi",
-        "projectPath": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\WineApi.csproj",
+        "projectPath": "X:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\WineApi.csproj",
         "packagesPath": "C:\\Users\\redcr\\.nuget\\packages\\",
-        "outputPath": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\obj\\",
+        "outputPath": "X:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\redcr\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,60 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[8.0.11, )"
-            },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[8.0.11, )"
-            },
-            "Microsoft.AspNetCore.Identity.UI": {
-              "target": "Package",
-              "version": "[8.0.11, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[8.0.11, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[9.0.0, )"
-            },
-            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
-              "target": "Package",
-              "version": "[1.21.0, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[8.0.7, )"
-            },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
-              "target": "Package",
-              "version": "[9.0.1, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.4.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -100,15 +50,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
