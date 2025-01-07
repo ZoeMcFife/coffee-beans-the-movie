@@ -166,10 +166,11 @@ namespace WineApi.Controllers
                 return NotFound(); // Return 404 if wine is not found
             }
 
-            _context.FermentationEntries.Add(FermentationEntryDTO.MapDtoToFermentationEntry(fermentationEntry));
+            var newFermentationEntry = FermentationEntryDTO.MapDtoToFermentationEntry(fermentationEntry);
+            _context.FermentationEntries.Add(newFermentationEntry);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFermentationEntry", new { id = fermentationEntry.Id }, fermentationEntry);
+            return CreatedAtAction("GetFermentationEntry", new { id = newFermentationEntry.Id }, newFermentationEntry);
         }
 
         // DELETE: api/FermentationEntries/5

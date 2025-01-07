@@ -158,10 +158,11 @@ namespace WineApi.Controllers
                 }
             }
 
-            _context.Additives.Add(AdditiveDTO.MapDtoToAdditive(additive));
+            var newAdditive = AdditiveDTO.MapDtoToAdditive(additive);
+            _context.Additives.Add(newAdditive);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAdditive", new { id = additive.Id }, additive);
+            return CreatedAtAction("GetAdditive", new { id = newAdditive.Id }, newAdditive);
         }
 
         // DELETE: api/Additives/5
