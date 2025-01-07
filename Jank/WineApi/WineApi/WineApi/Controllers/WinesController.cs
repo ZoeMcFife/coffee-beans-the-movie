@@ -208,7 +208,7 @@ namespace WineApi.Controllers
 
         [HttpGet("{id}/Additives")]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<WineDTO>>> GetAdditives(int id)
+        public async Task<ActionResult<IEnumerable<AdditiveDTO>>> GetAdditives(int id)
         {
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
