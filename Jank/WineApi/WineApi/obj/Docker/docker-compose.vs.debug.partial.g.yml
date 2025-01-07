@@ -13,12 +13,13 @@ services:
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
-      - NUGET_FALLBACK_PACKAGES=
+      - NUGET_FALLBACK_PACKAGES=/.nuget/fallbackpackages
     volumes:
-      - C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\WineApi:/app:rw
-      - C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi:/src:rw
+      - X:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\WineApi:/app:rw
+      - X:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi:/src:rw
       - C:\Users\redcr\vsdbg\vs2017u5:/remote_debugger:rw
       - C:\Users\redcr\.nuget\packages:/.nuget/packages:ro
+      - C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages:/.nuget/fallbackpackages:ro
       - C:\Users\redcr\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
       - C:\Users\redcr\AppData\Roaming\ASP.NET\Https:/home/app/.aspnet/https:ro
       - C:\Users\redcr\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
@@ -29,7 +30,7 @@ services:
     entrypoint: "dotnet --roll-forward Major /VSTools/DistrolessHelper/DistrolessHelper.dll --wait"
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /.nuget/packages  \"/app/bin/Debug/net8.0/WineApi.dll\""
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /.nuget/packages --additionalProbingPath /.nuget/fallbackpackages  \"/app/bin/Debug/net8.0/WineApi.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "dotnet --roll-forward Major /VSTools/DistrolessHelper/DistrolessHelper.dll --stop dotnet"
     tty: true

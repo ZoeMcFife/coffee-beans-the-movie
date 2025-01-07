@@ -162,10 +162,11 @@ namespace WineApi.Controllers
                 return Unauthorized();
             }
 
-            _context.Wines.Add(WineDTO.MapDtoToWine(wine));
+            var savedWine = WineDTO.MapDtoToWine(wine);
+            _context.Wines.Add(savedWine);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetWine", new { id = wine.Id }, wine);
+            return CreatedAtAction("GetWine", new { id = savedWine.Id }, savedWine);
         }
 
         // DELETE: api/Wines/5
