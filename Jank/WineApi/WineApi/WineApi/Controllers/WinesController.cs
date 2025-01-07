@@ -247,7 +247,7 @@ namespace WineApi.Controllers
 
         [HttpGet("{id}/FermentationEntries")]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<WineDTO>>> GetFermentationEntries(int id)
+        public async Task<ActionResult<IEnumerable<FermentationEntryDTO>>> GetFermentationEntries(int id)
         {
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
@@ -278,10 +278,9 @@ namespace WineApi.Controllers
                 return NotFound(); // Return 404 if wine is not found
             }
 
-            // Map the additives to AdditiveDTO
-            var additivesDto = wine.FermentationEntries.Select(FermentationEntryDTO.MapFermentationEntryToDto);
+            var fermentationEntries = wine.FermentationEntries.Select(FermentationEntryDTO.MapFermentationEntryToDto);
 
-            return Ok(additivesDto);
+            return Ok(fermentationEntries);
         }
 
         private bool WineExists(int id)
