@@ -29,44 +29,34 @@ namespace WineApi.Seeder
                 return;
             }
 
-            // Seed Users
             var users = GenerateUsers(10);
             _context.Set<User>().AddRange(users);
-            _context.SaveChanges(); // Save to generate IDs
+            _context.SaveChanges();
 
-            // Replace users list with seeded records from the database
             users = _context.Set<User>().ToList();
 
-            // Seed Most Treatments
             var mostTreatments = GenerateMostTreatments(100);
             _context.Set<MostTreatment>().AddRange(mostTreatments);
-            _context.SaveChanges(); // Save to generate IDs
+            _context.SaveChanges();
 
-            // Replace mostTreatments list with seeded records from the database
             mostTreatments = _context.Set<MostTreatment>().ToList();
 
-            // Seed Wines
             var wines = GenerateWines(100, users, mostTreatments);
             _context.Set<Wine>().AddRange(wines);
-            _context.SaveChanges(); // Save to generate IDs
+            _context.SaveChanges();
 
-            // Replace wines list with seeded records from the database
             wines = _context.Set<Wine>().ToList();
 
-            // Seed Fermentation Entries
             var fermentationEntries = GenerateFermentationEntries(300, wines);
             _context.Set<FermentationEntry>().AddRange(fermentationEntries);
-            _context.SaveChanges(); // Save to generate IDs
+            _context.SaveChanges();
 
-            // Replace fermentationEntries list with seeded records from the database
             fermentationEntries = _context.Set<FermentationEntry>().ToList();
 
-            // Seed Additives
             var additives = GenerateAdditives(60, wines);
             _context.Set<Additive>().AddRange(additives);
-            _context.SaveChanges(); // Save to generate IDs
+            _context.SaveChanges();
 
-            // Replace additives list with seeded records from the database
             additives = _context.Set<Additive>().ToList();
 
         }
@@ -77,10 +67,8 @@ namespace WineApi.Seeder
 
             for (int i = 1; i <= count; i++)
             {
-                // Hash the password
                 var hashedPassword = HashPassword("password123");
 
-                // Create a new User
                 var newUser = new User
                 {
                     Username = "testUser" + i,
@@ -88,7 +76,6 @@ namespace WineApi.Seeder
                     Email = "testUser" + i + "@gmail.com"
                 };
 
-                // Save to database
                 users.Add(newUser);
                 
             }
@@ -133,7 +120,7 @@ namespace WineApi.Seeder
 
         private string HashPassword(string password)
         {
-            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]); // Use a key from configuration
+            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
             using var hmac = new HMACSHA256(key);
             var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             return Convert.ToBase64String(hash);
