@@ -157,8 +157,7 @@
               "RelativeToolTip": "WineApi\\Model\\FermentationEntry.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T10:37:43.435Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:37:43.435Z"
             },
             {
               "$type": "Document",
@@ -170,8 +169,7 @@
               "RelativeToolTip": "WineApi\\Model\\MostTreatment.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T10:37:46.061Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:37:46.061Z"
             },
             {
               "$type": "Document",
@@ -183,8 +181,7 @@
               "RelativeToolTip": "WineApi\\Model\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T07:41:35.399Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T07:41:35.399Z"
             },
             {
               "$type": "Document",
@@ -196,8 +193,7 @@
               "RelativeToolTip": "WineApi\\Model\\Wine.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T10:37:48.998Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:37:48.998Z"
             },
             {
               "$type": "Document",
@@ -209,8 +205,7 @@
               "RelativeToolTip": "WineApi\\Seeder\\DbSeeder.cs",
               "ViewState": "AgIAAJYAAAAAAAAAAAAAAKQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T14:30:24.549Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-04T14:30:24.549Z"
             },
             {
               "$type": "Document",
@@ -222,8 +217,7 @@
               "RelativeToolTip": "WineApi\\Program.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAYwBoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T11:41:34.989Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T11:41:34.989Z"
             },
             {
               "$type": "Document",
@@ -239,6 +233,10 @@
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Additive.cs",
@@ -248,8 +246,7 @@
               "RelativeToolTip": "WineApi\\Model\\Additive.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T10:37:33.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:37:33.704Z"
             },
             {
               "$type": "Document",
@@ -261,8 +258,7 @@
               "RelativeToolTip": "WineApi\\Model\\DTO\\WineDTO.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAAA8AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T06:52:30.56Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T06:52:30.56Z"
             },
             {
               "$type": "Document",
@@ -274,8 +270,7 @@
               "RelativeToolTip": "WineApi\\Model\\DTO\\UserRegisterDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T07:11:50.578Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T07:11:50.578Z"
             },
             {
               "$type": "Document",
@@ -287,8 +282,7 @@
               "RelativeToolTip": "WineApi\\Model\\DTO\\UserLoginDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T07:06:47.944Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T07:06:47.944Z"
             },
             {
               "$type": "Document",
@@ -300,8 +294,7 @@
               "RelativeToolTip": "WineApi\\Model\\DTO\\UserDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T06:56:38.628Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-04T06:56:38.628Z"
             },
             {
               "$type": "Document",
@@ -313,8 +306,7 @@
               "RelativeToolTip": "WineApi\\Model\\DTO\\MostTreatmentDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T07:05:27.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T07:05:27.291Z"
             },
             {
               "$type": "Document",
@@ -326,8 +318,7 @@
               "RelativeToolTip": "WineApi\\Model\\DTO\\FermentationEntryDTO.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAAABUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T07:04:54.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T07:04:54.316Z"
             },
             {
               "$type": "Document",
@@ -339,8 +330,7 @@
               "RelativeToolTip": "WineApi\\Model\\DTO\\AdditiveDTO.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T07:05:39.363Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T07:05:39.363Z"
             },
             {
               "$type": "Document",
@@ -352,8 +342,7 @@
               "RelativeToolTip": "WineApi\\Migrations\\WineDbContextModelSnapshot.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T09:02:21.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-18T09:02:21.604Z"
             },
             {
               "$type": "Document",
@@ -365,8 +354,7 @@
               "RelativeToolTip": "WineApi\\Controllers\\UsersController.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAcwCgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T10:20:12.501Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-04T10:20:12.501Z"
             },
             {
               "$type": "Document",
@@ -378,8 +366,7 @@
               "RelativeToolTip": "WineApi\\Controllers\\AdditivesController.cs",
               "ViewState": "AgIAANIAAAAAAAAAAAAAAK8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T07:24:08.539Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T07:24:08.539Z"
             },
             {
               "$type": "Document",
@@ -391,8 +378,7 @@
               "RelativeToolTip": "WineApi\\Controllers\\FermentationEntriesController.cs",
               "ViewState": "AgIAAMMAAAAAAAAAAAAMwM8AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T07:23:39.032Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T07:23:39.032Z"
             },
             {
               "$type": "Document",
@@ -404,8 +390,7 @@
               "RelativeToolTip": "WineApi\\Context\\WineDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T10:40:39.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:40:39.782Z"
             },
             {
               "$type": "Document",
@@ -417,8 +402,7 @@
               "RelativeToolTip": "WineApi\\Controllers\\WinesController.cs",
               "ViewState": "AgIAANkBAAAAAAAAAAAowPABAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T07:16:22.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T07:16:22.619Z"
             },
             {
               "$type": "Document",
@@ -430,8 +414,7 @@
               "RelativeToolTip": "docker-compose.yml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2024-11-20T13:19:19.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T13:19:19.099Z"
             },
             {
               "$type": "Document",
@@ -443,12 +426,7 @@
               "RelativeToolTip": "launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-20T13:55:36.203Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "WhenOpened": "2024-11-20T13:55:36.203Z"
             },
             {
               "$type": "Document",
@@ -460,8 +438,7 @@
               "RelativeToolTip": "docker-compose.dcproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-20T13:19:14.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T13:19:14.982Z"
             },
             {
               "$type": "Document",
@@ -473,8 +450,7 @@
               "RelativeToolTip": ".dockerignore",
               "ViewState": "AgIAABgAAAAAAAAAAAAAAB0AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-20T13:02:24.034Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T13:02:24.034Z"
             },
             {
               "$type": "Document",
@@ -486,8 +462,7 @@
               "RelativeToolTip": "WineApi\\Dockerfile",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-20T11:44:59.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T11:44:59.251Z"
             },
             {
               "$type": "Document",
@@ -499,8 +474,7 @@
               "RelativeToolTip": "WineApi\\WineApi.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-20T10:36:44.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:36:44.832Z"
             },
             {
               "$type": "Document",
@@ -512,8 +486,7 @@
               "RelativeToolTip": "WineApi\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-20T11:43:14.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T11:43:14.141Z"
             },
             {
               "$type": "Document",
@@ -525,8 +498,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Sdks\\Microsoft.Docker.Sdk\\build\\Microsoft.VisualStudio.Docker.Compose.targets",
               "ViewState": "AgIAACwCAAAAAAAAAAAxwK0BAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-11-20T13:20:37.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T13:20:37.703Z"
             },
             {
               "$type": "Document",
@@ -538,8 +510,7 @@
               "RelativeToolTip": "docker-compose.override.yml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2024-12-04T07:06:45.799Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-04T07:06:45.799Z"
             },
             {
               "$type": "Document",
@@ -551,8 +522,7 @@
               "RelativeToolTip": "WineApi\\Migrations\\20241204144549_Initia2.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T14:45:49.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-04T14:45:49.385Z"
             },
             {
               "$type": "Document",
@@ -564,8 +534,7 @@
               "RelativeToolTip": "WineApi\\Migrations\\20241204143345_Initial.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T14:33:45.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-04T14:33:45.259Z"
             },
             {
               "$type": "Document",
@@ -587,8 +556,7 @@
               "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\WineApi.csproj",
               "RelativeToolTip": "WineApi\\WineApi.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-20T11:45:18.927Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T11:45:18.927Z"
             }
           ]
         }
