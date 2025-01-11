@@ -32,10 +32,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -43,9 +42,9 @@ namespace WineApi.Controllers
 
             var wines = await _context.Wines
                 .Where(w => w.UserId == userId)
-                .ToListAsync();  // Retrieve the wines for the authenticated user
+                .ToListAsync(); 
 
-            var wineDtos = wines.Select(w => WineDTO.MapWineToDto(w)).ToList(); // Map to DTOs on the client side
+            var wineDtos = wines.Select(w => WineDTO.MapWineToDto(w)).ToList();
 
             return Ok(wineDtos);
         }
@@ -58,10 +57,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -94,10 +92,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -146,10 +143,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -177,10 +173,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -214,10 +209,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -237,10 +231,9 @@ namespace WineApi.Controllers
 
             if (wine == null)
             {
-                return NotFound(); // Return 404 if wine is not found
+                return NotFound();
             }
 
-            // Map the additives to AdditiveDTO
             var additivesDto = wine.Additives.Select(AdditiveDTO.MapAdditiveToDto);
 
             return Ok(additivesDto);
@@ -253,10 +246,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -276,7 +268,7 @@ namespace WineApi.Controllers
 
             if (wine == null)
             {
-                return NotFound(); // Return 404 if wine is not found
+                return NotFound();
             }
 
             var fermentationEntries = wine.FermentationEntries.Select(FermentationEntryDTO.MapFermentationEntryToDto);
@@ -302,10 +294,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized(); 
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -325,7 +316,7 @@ namespace WineApi.Controllers
 
             if (wine == null)
             {
-                return NotFound(); // Return 404 if wine is not found
+                return NotFound();
             }
 
             var mostTreatment = wine.MostTreatment;
@@ -347,10 +338,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized(); 
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -370,7 +360,7 @@ namespace WineApi.Controllers
 
             if (wine == null)
             {
-                return NotFound(); // Return 404 if wine is not found
+                return NotFound();
             }
 
             if (wine.MostTreatment == null)
@@ -413,10 +403,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -436,7 +425,7 @@ namespace WineApi.Controllers
 
             if (wine == null)
             {
-                return NotFound(); // Return 404 if wine is not found
+                return NotFound();
             }
             
 
@@ -457,10 +446,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -480,7 +468,7 @@ namespace WineApi.Controllers
 
             if (wine == null)
             {
-                return NotFound(); // Return 404 if wine is not found
+                return NotFound();
             }
 
             if (wine.MostTreatment  == null)
