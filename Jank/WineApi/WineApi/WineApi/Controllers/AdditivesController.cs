@@ -31,10 +31,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -59,7 +58,7 @@ namespace WineApi.Controllers
 
             if (wine == null)
             {
-                return NotFound(); // Return 404 if wine is not found
+                return NotFound();
             }
 
 
@@ -80,10 +79,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -134,10 +132,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -173,10 +170,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");

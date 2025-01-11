@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 using WineApi.Model;
+
+[assembly: InternalsVisibleTo("WeinManagementUnitTests")]
 
 namespace WineApi.Context
 {

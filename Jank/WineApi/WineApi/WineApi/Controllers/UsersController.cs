@@ -38,7 +38,7 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
             // Parse the userId from the claim
@@ -65,10 +65,9 @@ namespace WineApi.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
             if (userIdClaim == null)
             {
-                return Unauthorized(); // Return 401 if no userId claim is found
+                return Unauthorized();
             }
 
-            // Parse the userId from the claim
             if (!int.TryParse(userIdClaim.Value, out var userId))
             {
                 return BadRequest("Invalid user ID in token.");
@@ -89,16 +88,13 @@ namespace WineApi.Controllers
         [HttpPost("Register")]
         public async Task<ActionResult<UserDTO>> Register(UserRegisterDTO userDto)
         {
-            // Check if username is already taken
             if (await _context.Users.AnyAsync(u => u.Username == userDto.Username))
             {
                 return BadRequest("Username is already taken.");
             }
 
-            // Hash the password
             var hashedPassword = HashPassword(userDto.Password);
 
-            // Create a new User
             var newUser = new User
             {
                 Username = userDto.Username,
@@ -106,24 +102,20 @@ namespace WineApi.Controllers
                 Email = userDto.Email
             };
 
-            // Save to database
             _context.Users.Add(newUser);
             await _context.SaveChangesAsync();
 
-            // Return the newly created user's data
             return CreatedAtAction("GetUser", new { id = newUser.Id }, UserDTO.MapUserToDto(newUser));
         }
 
-        // Helper function to hash passwords
         private string HashPassword(string password)
         {
-            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]); // Use a key from configuration
+            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]); 
             using var hmac = new HMACSHA256(key);
             var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             return Convert.ToBase64String(hash);
         }
 
-        // Authentication endpoint
         [HttpPost("Login")]
         public async Task<IActionResult> Login(UserLoginDTO userLogin)
         {
@@ -134,13 +126,11 @@ namespace WineApi.Controllers
                 return Unauthorized("Invalid username or password.");
             }
 
-            // Verify the password
             if (!VerifyPassword(userLogin.Password, user.Password))
             {
                 return Unauthorized("Invalid username or password.");
             }
 
-            // Generate JWT token
             var token = GenerateJwtToken(user);
 
             return Ok(new { Token = token, User = UserDTO.MapUserToDto(user) });
@@ -170,7 +160,7 @@ namespace WineApi.Controllers
 
         private bool VerifyPassword(string password, string storedHash)
         {
-            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]); // Use a key from configuration
+            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
             using var hmac = new HMACSHA256(key);
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             var computedHashString = Convert.ToBase64String(computedHash);
