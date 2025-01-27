@@ -39,24 +39,26 @@ namespace WineApi.Controllers
                 return BadRequest("Invalid user ID in token.");
             }
 
-            var additive = await _context.Additives.Include(a => a.Wine).FirstOrDefaultAsync(a => a.Id == id);
+            var additive = await _context.Additives.Include(a => a.WineId).FirstOrDefaultAsync(a => a.Id == id);
 
             if (additive == null)
             {
                 return NotFound();
             }
 
-            var wine = additive.Wine;
+            var wineid = additive.WineId;
 
-            if (wine != null)
+            if (wineid != null)
             {
+                var wine = await _context.Wines.FindAsync(wineid);
+
                 if (wine.UserId != userId)
                 {
                     return Unauthorized();
                 }
             }
 
-            if (wine == null)
+            if (wineid == null)
             {
                 return NotFound();
             }

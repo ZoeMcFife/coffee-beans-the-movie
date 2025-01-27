@@ -32,7 +32,7 @@
                 Id = fermentationEntry.Id,
                 Date = fermentationEntry.Date,
                 Density = fermentationEntry.Density,
-                WineId = fermentationEntry.Wine.Id
+                WineId = fermentationEntry.WineId
             };
         }
 

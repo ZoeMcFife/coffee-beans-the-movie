@@ -47,17 +47,19 @@ namespace WineApi.Controllers
                 return NotFound();
             }
 
-            var wine = fermentationEntry.Wine;
+            var wineId = fermentationEntry.WineId;
 
-            if (wine != null)
+            if (wineId != null)
             {
+                var wine = await _context.Wines.FindAsync(wineId);
+
                 if (wine.UserId != userId)
                 {
                     return Unauthorized();
                 }
             }
 
-            if (wine == null)
+            if (wineId == null)
             {
                 return NotFound();
             }

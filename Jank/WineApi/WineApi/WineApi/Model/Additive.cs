@@ -9,7 +9,5 @@
         public float AmountGrammsPerHectoLitre { get; set; } 
         public float AmountGrammsPer1000Litre { get; set; }
         public int WineId { get; set; }
-
-        public Wine Wine { get; set; }
     }
 }

@@ -39,7 +39,7 @@
                 AmountGrammsPerLitre = additive.AmountGrammsPerLitre,
                 AmountGrammsPerHectoLitre = additive.AmountGrammsPerHectoLitre,
                 AmountGrammsPer1000Litre = additive.AmountGrammsPer1000Litre,
-                WineId = additive.Wine.Id
+                WineId = additive.WineId
             };
         }
 

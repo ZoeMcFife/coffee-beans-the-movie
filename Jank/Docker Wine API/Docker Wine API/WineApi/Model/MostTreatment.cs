@@ -6,9 +6,7 @@ namespace WineApi.Model
     {
         public int Id { get; set; }
 
-        public bool IsTreated { get; set; } // Mostschönung (Ja/Nein)
-        public DateTime? TreatmentDate { get; set; } // Datum der Behandlung
+        public bool IsTreated { get; set; }
+        public DateTime? TreatmentDate { get; set; }
     }
-
-
 }

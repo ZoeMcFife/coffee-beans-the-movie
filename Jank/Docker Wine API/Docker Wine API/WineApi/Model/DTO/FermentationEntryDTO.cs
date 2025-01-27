@@ -4,8 +4,8 @@
     {
         public int Id { get; set; }
 
-        public DateTime Date { get; set; } // Datum
-        public float Density { get; set; } // Dichte (OE, KMW)
+        public DateTime Date { get; set; }
+        public float Density { get; set; }
 
         public int WineId { get; set; }
 
@@ -19,7 +19,7 @@
                 Id = dto.Id,
                 Date = dto.Date,
                 Density = dto.Density,
-                WineId = dto.WineId // Set to null, can be populated later if necessary
+                WineId = dto.WineId
             };
         }
 
@@ -32,7 +32,7 @@
                 Id = fermentationEntry.Id,
                 Date = fermentationEntry.Date,
                 Density = fermentationEntry.Density,
-                WineId = fermentationEntry.Wine.Id
+                WineId = fermentationEntry.WineId
             };
         }
 
