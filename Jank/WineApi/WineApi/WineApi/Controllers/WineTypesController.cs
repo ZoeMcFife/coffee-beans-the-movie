@@ -14,20 +14,20 @@ namespace WineApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AdditiveTypesController : ControllerBase
+    public class WineTypesController : ControllerBase
     {
         private readonly WineDbContext _context;
         private AuthHelper authHelper = new AuthHelper();
 
-        public AdditiveTypesController(WineDbContext context)
+        public WineTypesController(WineDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/AdditiveTypes
+        // GET: api/WineTypes
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<AdditiveType>>> GetAdditiveTypes()
+        public async Task<ActionResult<IEnumerable<WineType>>> GetWineTypes()
         {
             var results = authHelper.GetAuthenticatedUser(this);
 
@@ -36,13 +36,13 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            return await _context.AdditiveTypes.ToListAsync();
+            return await _context.WineTypes.ToListAsync();
         }
 
-        // GET: api/AdditiveTypes/5
+        // GET: api/WineTypes/5
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<AdditiveType>> GetAdditiveType(Guid id)
+        public async Task<ActionResult<WineType>> GetWineType(Guid id)
         {
             var results = authHelper.GetAuthenticatedUser(this);
 
@@ -51,21 +51,21 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            var additiveType = await _context.AdditiveTypes.FindAsync(id);
+            var wineType = await _context.WineTypes.FindAsync(id);
 
-            if (additiveType == null)
+            if (wineType == null)
             {
                 return NotFound();
             }
 
-            return additiveType;
+            return wineType;
         }
 
-        // PUT: api/AdditiveTypes/5
+        // PUT: api/WineTypes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> PutAdditiveType(Guid id, AdditiveType additiveType)
+        public async Task<IActionResult> PutWineType(Guid id, WineType wineType)
         {
             var results = authHelper.GetAuthenticatedUser(this);
 
@@ -79,12 +79,12 @@ namespace WineApi.Controllers
             if (!userIsAdmin)
                 return Unauthorized();
 
-            if (id != additiveType.Id)
+            if (id != wineType.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(additiveType).State = EntityState.Modified;
+            _context.Entry(wineType).State = EntityState.Modified;
 
             try
             {
@@ -92,7 +92,7 @@ namespace WineApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AdditiveTypeExists(id))
+                if (!WineTypeExists(id))
                 {
                     return NotFound();
                 }
@@ -105,11 +105,11 @@ namespace WineApi.Controllers
             return NoContent();
         }
 
-        // POST: api/AdditiveTypes
+        // POST: api/WineTypes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<AdditiveType>> PostAdditiveType(AdditiveType additiveType)
+        public async Task<ActionResult<WineType>> PostWineType(WineType wineType)
         {
             var results = authHelper.GetAuthenticatedUser(this);
 
@@ -123,16 +123,16 @@ namespace WineApi.Controllers
             if (!userIsAdmin)
                 return Unauthorized();
 
-            _context.AdditiveTypes.Add(additiveType);
+            _context.WineTypes.Add(wineType);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAdditiveType", new { id = additiveType.Id }, additiveType);
+            return CreatedAtAction("GetWineType", new { id = wineType.Id }, wineType);
         }
 
-        // DELETE: api/AdditiveTypes/5
+        // DELETE: api/WineTypes/5
         [HttpDelete("{id}")]
         [Authorize]
-        public async Task<IActionResult> DeleteAdditiveType(Guid id)
+        public async Task<IActionResult> DeleteWineType(Guid id)
         {
             var results = authHelper.GetAuthenticatedUser(this);
 
@@ -146,21 +146,21 @@ namespace WineApi.Controllers
             if (!userIsAdmin)
                 return Unauthorized();
 
-            var additiveType = await _context.AdditiveTypes.FindAsync(id);
-            if (additiveType == null)
+            var wineType = await _context.WineTypes.FindAsync(id);
+            if (wineType == null)
             {
                 return NotFound();
             }
 
-            _context.AdditiveTypes.Remove(additiveType);
+            _context.WineTypes.Remove(wineType);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool AdditiveTypeExists(Guid id)
+        private bool WineTypeExists(Guid id)
         {
-            return _context.AdditiveTypes.Any(e => e.Id == id);
+            return _context.WineTypes.Any(e => e.Id == id);
         }
     }
 }

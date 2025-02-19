@@ -16,13 +16,13 @@ namespace WineApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WinesController : ControllerBase
+    public class WineBarrelsController : ControllerBase
     {
         private readonly WineDbContext _context;
 
         private AuthHelper authHelper = new AuthHelper();
 
-        public WinesController(WineDbContext context)
+        public WineBarrelsController(WineDbContext context)
         {
             _context = context;
         }
@@ -31,7 +31,7 @@ namespace WineApi.Controllers
         // GET: api/Users/Wines
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<Wine>>> GetWines()
+        public async Task<ActionResult<IEnumerable<WineBarrel>>> GetWineBarrels()
         {
             var results = authHelper.GetAuthenticatedUser(this);
                 
@@ -40,7 +40,7 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            var wines = await _context.Wines
+            var wines = await _context.WineBarrels
                 .Where(w => w.UserId == results.UserId)
                 .ToListAsync(); 
 
@@ -50,7 +50,7 @@ namespace WineApi.Controllers
         // GET: api/Wines/5
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<Wine>> GetWine(int id)
+        public async Task<ActionResult<WineBarrel>> GetWineBarrel(Guid id)
         {
             var results = authHelper.GetAuthenticatedUser(this);
 
@@ -59,7 +59,7 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            var wine = await _context.Wines.FindAsync(id);
+            var wine = await _context.WineBarrels.FindAsync(id);
 
             if (wine != null)
             {
@@ -77,11 +77,207 @@ namespace WineApi.Controllers
             return wine;
         }
 
+        [HttpGet("{id}")]
+        [Authorize]
+        public async Task<ActionResult<WineBarrel>> GetWineBarrelHistory(Guid id)
+        {
+            var results = authHelper.GetAuthenticatedUser(this);
+
+            if (!results.IsAuthenticated)
+            {
+                return results.ErrorResult;
+            }
+
+            var barrel = await _context.WineBarrels.FindAsync(id);
+
+            if (barrel == null)
+            {
+                return NotFound();
+            }
+
+            if (barrel.UserId != results.UserId)
+            {
+                return Unauthorized();
+            }
+
+            var wineBarrelHistory = barrel.History;
+
+            return Ok(wineBarrelHistory);
+        }
+
+        [HttpPost("{id}/InsertWine/{wineTypeId}/{startDate}")]
+        [Authorize]
+        public async Task<IActionResult> InsertNewWine(Guid id, Guid wineTypeId, DateTime startDate)
+        {
+            var results = authHelper.GetAuthenticatedUser(this);
+
+            if (!results.IsAuthenticated)
+            {
+                return results.ErrorResult;
+            }
+
+            var barrel = await _context.WineBarrels.FindAsync(id);
+
+            if (barrel == null)
+            {
+                return NotFound();
+            }
+
+            if (barrel.UserId != results.UserId)
+            {
+                return Unauthorized();
+            }
+
+            if (barrel.CurrentWineBarrelHistoryId != null)
+            {
+                return BadRequest("Remove current Wine before adding new Wine");
+            }
+
+            var wineType = await _context.WineTypes.FindAsync(wineTypeId);
+
+            if (wineType == null)
+            {
+                return NotFound();
+            }
+
+            var newBarrelHistory = new WineBarrelHistory
+            {
+                WineBarrelId = id,
+                WineTypeId = wineTypeId,
+                StartDate = startDate
+            };
+
+            _context.Entry(newBarrelHistory).State = EntityState.Modified;
+
+            barrel.CurrentWineBarrelHistoryId = newBarrelHistory.Id;
+
+            _context.Entry(barrel).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!WineBarrelExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok(barrel);
+        }
+
+        [HttpPost("{id}/RemoveCurrentWine/{endDate}")]
+        [Authorize]
+        public async Task<IActionResult> RemoveCurrentWine(Guid id, DateTime endDate)
+        {
+            var results = authHelper.GetAuthenticatedUser(this);
+
+            if (!results.IsAuthenticated)
+            {
+                return results.ErrorResult;
+            }
+
+            var barrel = await _context.WineBarrels.FindAsync(id);
+
+            if (barrel == null)
+            {
+                return NotFound();
+            }
+
+            if (barrel.UserId != results.UserId)
+            {
+                return Unauthorized();
+            }
+
+            if (barrel.CurrentWineBarrelHistoryId == null)
+            {
+                return BadRequest("No Wine to remove");
+            }
+
+            var currentHistory = await _context.WineBarrelHistories.FindAsync(barrel.CurrentWineBarrelHistoryId);
+
+            currentHistory.EndDate = endDate;
+
+            _context.Entry(currentHistory).State = EntityState.Modified;
+
+            barrel.CurrentWineBarrelHistoryId = null;
+
+            _context.Entry(barrel).State = EntityState.Modified;
+
+            _context.SaveChanges();
+
+            return Ok(currentHistory);
+        }
+
+        [HttpGet("{id}/WineType")]
+        [Authorize]
+        public async Task<ActionResult<WineBarrel>> GetCurrentWineType(Guid id)
+        {
+            var results = authHelper.GetAuthenticatedUser(this);
+
+            if (!results.IsAuthenticated)
+            {
+                return results.ErrorResult;
+            }
+
+            var barrel = await _context.WineBarrels.FindAsync(id);
+
+            if (barrel == null)
+            {
+                return NotFound();
+            }
+
+            if (barrel.UserId != results.UserId)
+            {
+                return Unauthorized();
+            }
+
+            var wineBarrelHistory = barrel.History;
+
+            return Ok(wineBarrelHistory);
+        }
+
+        [HttpGet("{id}/CurrentWineHistory")]
+        [Authorize]
+        public async Task<ActionResult<WineBarrel>> GetCurrentWineBarrelHistory(Guid id)
+        {
+            var results = authHelper.GetAuthenticatedUser(this);
+
+            if (!results.IsAuthenticated)
+            {
+                return results.ErrorResult;
+            }
+
+            var barrel = await _context.WineBarrels.FindAsync(id);
+
+            if (barrel == null)
+            {
+                return NotFound();
+            }
+
+            if (barrel.UserId != results.UserId)
+            {
+                return Unauthorized();
+            }
+
+            var wineBarrelHistory = barrel.History;
+
+            return Ok(wineBarrelHistory);
+        }
+
+
+
         // PUT: api/Wines/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> PutWine(Guid id, Wine wine)
+        public async Task<IActionResult> PutWineBarrel(Guid id, WineBarrel wine)
         {
             var results = authHelper.GetAuthenticatedUser(this);
 
@@ -111,7 +307,7 @@ namespace WineApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!WineExists(id))
+                if (!WineBarrelExists(id))
                 {
                     return NotFound();
                 }
@@ -128,7 +324,7 @@ namespace WineApi.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<Wine>> PostWine(Wine wine)
+        public async Task<ActionResult<WineBarrel>> PostWineBarrel(WineBarrel wine)
         {
             var results = authHelper.GetAuthenticatedUser(this);
 
@@ -144,7 +340,7 @@ namespace WineApi.Controllers
                 return Unauthorized();
             }
 
-            _context.Wines.Add(wine);
+            _context.WineBarrels.Add(wine);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetWine", new { id = wine.Id }, wine);
@@ -153,7 +349,7 @@ namespace WineApi.Controllers
         // DELETE: api/Wines/5
         [HttpDelete("{id}")]
         [Authorize]
-        public async Task<IActionResult> DeleteWine(Guid id)
+        public async Task<IActionResult> DeleteWineBarrel(Guid id)
         {
             var results = authHelper.GetAuthenticatedUser(this);
 
@@ -162,7 +358,7 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            var wine = await _context.Wines.FindAsync(id);
+            var wine = await _context.WineBarrels.FindAsync(id);
 
             if (wine != null)
             {
@@ -177,7 +373,7 @@ namespace WineApi.Controllers
                 return NotFound();
             }
 
-            _context.Wines.Remove(wine);
+            _context.WineBarrels.Remove(wine);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -194,7 +390,7 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            var wine = await _context.Wines
+            var wine = await _context.WineBarrels
                .Include(w => w.Additives)
                .FirstOrDefaultAsync(w => w.Id == id);
 
@@ -227,7 +423,7 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            var wine = await _context.Wines
+            var wine = await _context.WineBarrels
                .Include(w => w.FermentationEntries)
                .FirstOrDefaultAsync(w => w.Id == id);
 
@@ -249,9 +445,9 @@ namespace WineApi.Controllers
             return Ok(fermentationEntries);
         }
 
-        private bool WineExists(Guid id)
+        private bool WineBarrelExists(Guid id)
         {
-            return _context.Wines.Any(e => e.Id == id);
+            return _context.WineBarrels.Any(e => e.Id == id);
         }
 
         /* 
@@ -271,7 +467,7 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            var wine = await _context.Wines
+            var wine = await _context.WineBarrels
                .Include(w => w.MostTreatment)
                .FirstOrDefaultAsync(w => w.Id == id);
 
@@ -311,7 +507,7 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            var wine = await _context.Wines
+            var wine = await _context.WineBarrels
                .Include(w => w.MostTreatment)
                .FirstOrDefaultAsync(w => w.Id == id);
 
@@ -372,7 +568,7 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            var wine = await _context.Wines
+            var wine = await _context.WineBarrels
                .Include(w => w.MostTreatment)
                .FirstOrDefaultAsync(w => w.Id == id);
 
@@ -411,7 +607,7 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            var wine = await _context.Wines
+            var wine = await _context.WineBarrels
                .Include(w => w.MostTreatment)
                .FirstOrDefaultAsync(w => w.Id == id);
 

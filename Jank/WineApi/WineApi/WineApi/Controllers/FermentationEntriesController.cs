@@ -50,7 +50,7 @@ namespace WineApi.Controllers
 
             if (wineId != null)
             {
-                var wine = await _context.Wines.FindAsync(wineId);
+                var wine = await _context.WineBarrels.FindAsync(wineId);
 
                 if (wine.UserId != results.UserId)
                 {
@@ -84,7 +84,7 @@ namespace WineApi.Controllers
                 return BadRequest();
             }
 
-            var wine = _context.Wines.Find(fermentationEntry.WineId);
+            var wine = _context.WineBarrels.Find(fermentationEntry.WineId);
 
             if (wine != null)
             {
@@ -141,7 +141,7 @@ namespace WineApi.Controllers
             }
 
 
-            var wine = _context.Wines.Find(fermentationEntry.WineId);
+            var wine = _context.WineBarrels.Find(fermentationEntry.WineId);
 
             if (wine != null)
             {
@@ -181,7 +181,7 @@ namespace WineApi.Controllers
                 return NotFound();
             }
 
-            var wine = _context.Wines.Find(fermentationEntry.WineId);
+            var wine = _context.WineBarrels.Find(fermentationEntry.WineId);
 
             if (wine != null)
             {

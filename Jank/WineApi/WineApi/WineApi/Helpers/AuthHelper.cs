@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WineApi.Context;
 using WineApi.Model;
 
 namespace WineApi.Helpers
@@ -20,5 +21,19 @@ namespace WineApi.Helpers
 
             return new AuthResults(true, userId, null);
         }
+
+        public async Task<bool> UserHasAdminRights(WineDbContext context, Guid? userId)
+        {
+            if (userId == null)
+                return false;
+
+            var user = await context.Users.FindAsync(userId);
+
+            if (user == null)
+                return false;
+
+            return user.AdminRights;
+        }
+
     }
 }

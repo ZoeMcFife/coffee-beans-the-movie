@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using WineApi.Context;
@@ -35,19 +37,33 @@ namespace WineApi.Seeder
 
             users = _context.Set<User>().ToList();
 
+            var wineTypes = GenerateWineTypes(15);
+            _context.Set<WineType>().AddRange(wineTypes);
+            _context.SaveChanges();
+
+            wineTypes = _context.Set<WineType>().ToList();
+
             var mostTreatments = GenerateMostTreatments(100);
             _context.Set<MostTreatment>().AddRange(mostTreatments);
             _context.SaveChanges();
 
             mostTreatments = _context.Set<MostTreatment>().ToList();
 
-            var wines = GenerateWines(100, users, mostTreatments);
-            _context.Set<Wine>().AddRange(wines);
+            var (wineBarrels, barrelCurrentHistories) = GenerateWineBarrels(100, users, mostTreatments, wineTypes);
+            _context.Set<WineBarrel>().AddRange(wineBarrels);
             _context.SaveChanges();
 
-            wines = _context.Set<Wine>().ToList();
+            _context.Set<WineBarrelHistory>().AddRange(barrelCurrentHistories);
+            _context.SaveChanges();
 
-            var fermentationEntries = GenerateFermentationEntries(300, wines);
+            wineBarrels = _context.Set<WineBarrel>().ToList();
+
+            foreach (var wine in wineBarrels)
+            {
+                GenerateWineBarrelHistory(wine, wineTypes);
+            }
+
+            var fermentationEntries = GenerateFermentationEntries(300, wineBarrels);
             _context.Set<FermentationEntry>().AddRange(fermentationEntries);
             _context.SaveChanges();
 
@@ -57,14 +73,92 @@ namespace WineApi.Seeder
             _context.Set<AdditiveType>().AddRange(addityTypes);
             _context.SaveChanges();
 
-            var additives = GenerateAdditives(60, wines, addityTypes);
+            var additives = GenerateAdditives(60, wineBarrels, addityTypes);
             _context.Set<Additive>().AddRange(additives);
             _context.SaveChanges();
 
             additives = _context.Set<Additive>().ToList();
 
+
+            var admin = new User
+            {
+                Username = "Buchi",
+                Password = HashPassword("admin"),
+                Email = "admin",
+                AdminRights = true
+            };
+
+            _context.Users.Add(admin);
+            _context.SaveChanges();
+
         }
 
+
+        private List<WineType> GenerateWineTypes(int count)
+        {
+            var wineNames = new List<string>
+            {
+                "Cabernet Sauvignon",
+                "Merlot",
+                "Pinot Noir",
+                "Syrah",
+                "Zinfandel",
+                "Chardonnay",
+                "Sauvignon Blanc",
+                "Riesling",
+                "Malbec",
+                "Grenache",
+                "Tempranillo",
+                "Sangiovese",
+                "Barbera",
+                "Moscato",
+                "Viognier"
+            };
+
+            var wineTypes = new List<WineType>();
+            var random = new Random();
+
+            for (int i = 0; i < count; i++)
+            {
+                string randomWine = wineNames[random.Next(wineNames.Count)];
+                wineTypes.Add(new WineType
+                {
+                    Id = Guid.NewGuid(),
+                    Name = randomWine
+                });
+            }
+
+            return wineTypes;
+        }
+
+        private void GenerateWineBarrelHistory(WineBarrel barrel, List<WineType> wineTypes)
+        {
+            var random = new Random();
+
+            var history_count = random.Next(15);
+
+            List<WineBarrelHistory> histories = new List<WineBarrelHistory>();
+
+            for (int i = 0; i < history_count; i++)
+            {
+                var s = DateTime.Now.AddDays(-random.Next(100, 665)).ToUniversalTime();
+                var e = s.AddDays(random.Next(1, 100));
+
+                var history = new WineBarrelHistory
+                {
+                    Id = Guid.NewGuid(),
+                    WineBarrelId = barrel.Id,
+                    WineTypeId = wineTypes[random.Next(wineTypes.Count - 1)].Id,
+                    StartDate = s,
+                    EndDate = e,
+                };
+
+                histories.Add(history);
+            }
+
+            _context.Set<WineBarrelHistory>().AddRange(histories);
+            _context.SaveChanges();
+        }
 
         private List<AdditiveType> GenerateAdditiveTypes(int count)
         {
@@ -124,15 +218,18 @@ namespace WineApi.Seeder
             return users;
         }
 
-        private List<Wine> GenerateWines(int count, List<User> users, List<MostTreatment> mostTreatments)
+        private (List<WineBarrel>, List<WineBarrelHistory>) GenerateWineBarrels(int count, List<User> users, List<MostTreatment> mostTreatments, List<WineType> wineTypes)
         {
             var random = new Random();
-            var wines = new List<Wine>();
+            var wines = new List<WineBarrel>();
+            var histories = new List<WineBarrelHistory>();
+
             for (int i = 1; i <= count; i++)
             {
-                wines.Add(new Wine
+                var barrel = new WineBarrel
                 {
-                    Name = $"Wine {i}",
+                    Id = Guid.NewGuid(),
+                    Name = $"Wine Barrel {i}",
                     MostWeight = (float)(random.NextDouble() * 100),
                     HarvestDate = DateTime.Now.AddDays(-random.Next(1, 365)).ToUniversalTime(),
                     VolumeInLitre = (float)(random.NextDouble() * 100),
@@ -140,9 +237,24 @@ namespace WineApi.Seeder
                     ProductionType = "Bio",
                     UserId = users[random.Next(users.Count - 1)].Id,
                     MostTreatmentId = mostTreatments[random.Next(mostTreatments.Count)].Id
-                });
+                };
+
+                wines.Add(barrel);
+
+                if (i % 5 != 0)
+                {
+                    var history = new WineBarrelHistory
+                    {
+                        Id = Guid.NewGuid(),
+                        WineBarrelId = barrel.Id,
+                        WineTypeId = wineTypes[random.Next(wineTypes.Count - 1)].Id,
+                        StartDate = DateTime.Now.AddDays(-random.Next(1, 10)).ToUniversalTime(),
+                    };
+
+                    histories.Add(history);
+                }
             }
-            return wines;
+            return (wines, histories);
         }
 
         private List<MostTreatment> GenerateMostTreatments(int count)
@@ -168,7 +280,7 @@ namespace WineApi.Seeder
             return Convert.ToBase64String(hash);
         }
 
-        private List<FermentationEntry> GenerateFermentationEntries(int count, List<Wine> wines)
+        private List<FermentationEntry> GenerateFermentationEntries(int count, List<WineBarrel> wines)
         {
             var random = new Random();
             var entries = new List<FermentationEntry>();
@@ -184,7 +296,7 @@ namespace WineApi.Seeder
             return entries;
         }
 
-        private List<Additive> GenerateAdditives(int count, List<Wine> wines, List<AdditiveType> additiveTypes)
+        private List<Additive> GenerateAdditives(int count, List<WineBarrel> wines, List<AdditiveType> additiveTypes)
         {
             var random = new Random();
             var additives = new List<Additive>();

@@ -6,6 +6,7 @@
 
         public string Username { get; set; }
         public string Email { get; set; }
+        public bool AdminRights { get; set; }
 
         public static User MapDtoToUser(UserDTO userDto)
         {
@@ -16,6 +17,7 @@
                 Id = userDto.Id,
                 Username = userDto.Username,
                 Email = userDto.Email,
+                AdminRights = userDto.AdminRights,
             };
         }
 
@@ -28,6 +30,7 @@
                 Id = user.Id,
                 Username = user.Username,
                 Email = user.Email,
+                AdminRights = user.AdminRights,
             };
         }
     }
