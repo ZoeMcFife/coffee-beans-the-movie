@@ -142,7 +142,7 @@ namespace WineApi.Seeder
             for (int i = 0; i < history_count; i++)
             {
                 var s = DateTime.Now.AddDays(-random.Next(100, 665)).ToUniversalTime();
-                var e = s.AddDays(random.Next(1, 100));
+                var e = s.AddDays(random.Next(1, 100)).ToUniversalTime();
 
                 var history = new WineBarrelHistory
                 {
@@ -239,7 +239,9 @@ namespace WineApi.Seeder
                     MostTreatmentId = mostTreatments[random.Next(mostTreatments.Count)].Id
                 };
 
-                wines.Add(barrel);
+
+                var currentWineTypeId = wineTypes[random.Next(wineTypes.Count - 1)].Id;
+
 
                 if (i % 5 != 0)
                 {
@@ -247,12 +249,17 @@ namespace WineApi.Seeder
                     {
                         Id = Guid.NewGuid(),
                         WineBarrelId = barrel.Id,
-                        WineTypeId = wineTypes[random.Next(wineTypes.Count - 1)].Id,
+                        WineTypeId = currentWineTypeId,
                         StartDate = DateTime.Now.AddDays(-random.Next(1, 10)).ToUniversalTime(),
                     };
 
+                    barrel.CurrentWineTypeId = currentWineTypeId;
+                    barrel.CurrentWineBarrelHistoryId = history.Id;
+
                     histories.Add(history);
                 }
+
+                wines.Add(barrel);
             }
             return (wines, histories);
         }

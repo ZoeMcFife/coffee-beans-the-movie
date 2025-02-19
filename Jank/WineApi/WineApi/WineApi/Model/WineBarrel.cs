@@ -39,10 +39,6 @@ namespace WineApi.Model
 
         [JsonIgnore]
         [XmlIgnore]
-        public WineType WineType { get; set; }
-
-        [JsonIgnore]
-        [XmlIgnore]
         public MostTreatment? MostTreatment { get; set; }
         
         [JsonIgnore]
