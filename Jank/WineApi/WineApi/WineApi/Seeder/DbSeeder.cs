@@ -135,7 +135,7 @@ namespace WineApi.Seeder
                     Name = $"Wine {i}",
                     MostWeight = (float)(random.NextDouble() * 100),
                     HarvestDate = DateTime.Now.AddDays(-random.Next(1, 365)).ToUniversalTime(),
-                    VolumeInHectoLitre = (float)(random.NextDouble() * 100),
+                    VolumeInLitre = (float)(random.NextDouble() * 100),
                     Container = $"Container {i}",
                     ProductionType = "Bio",
                     UserId = users[random.Next(users.Count - 1)].Id,
