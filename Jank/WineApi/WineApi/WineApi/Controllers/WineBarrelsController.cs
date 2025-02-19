@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using WineApi.Context;
 using WineApi.Helpers;
 using WineApi.Model;
+using WineApi.Model.Contraints;
 using WineApi.Model.DTO;
 
 namespace WineApi.Controllers
@@ -291,6 +292,13 @@ namespace WineApi.Controllers
                 }
             }
 
+            var (isValid, Error) = WineBarrelConstraints.CheckBarrel(wine);
+
+            if (!isValid)
+            {
+                return BadRequest(Error);
+            }
+
             if (id != wine.Id)
             {
                 return BadRequest();
@@ -336,6 +344,14 @@ namespace WineApi.Controllers
             {
                 return Unauthorized();
             }
+
+            var (isValid, Error) = WineBarrelConstraints.CheckBarrel(wine);
+
+            if (!isValid)
+            {
+                return BadRequest(Error);
+            }
+
 
             _context.WineBarrels.Add(wine);
             await _context.SaveChangesAsync();

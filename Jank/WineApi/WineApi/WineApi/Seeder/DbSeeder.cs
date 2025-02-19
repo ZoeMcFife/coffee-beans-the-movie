@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using WineApi.Context;
 using WineApi.Model;
+using WineApi.Model.Contraints;
 using WineApi.Model.DTO;
 
 namespace WineApi.Seeder
@@ -230,10 +231,9 @@ namespace WineApi.Seeder
                 {
                     Id = Guid.NewGuid(),
                     Name = $"Wine Barrel {i}",
-                    MostWeight = (float)(random.NextDouble() * 100),
+                    MostWeight = (float)(random.NextDouble() * (WineBarrelConstraints.MaxMostWeight - WineBarrelConstraints.MinMostWeight) + WineBarrelConstraints.MinMostWeight),
                     HarvestDate = DateTime.Now.AddDays(-random.Next(1, 365)).ToUniversalTime(),
-                    VolumeInLitre = (float)(random.NextDouble() * 100),
-                    Container = $"Container {i}",
+                    VolumeInLitre = (float)(random.NextDouble() * (WineBarrelConstraints.MaxVolume - WineBarrelConstraints.MinVolume) + WineBarrelConstraints.MinVolume),
                     ProductionType = "Bio",
                     UserId = users[random.Next(users.Count - 1)].Id,
                     MostTreatmentId = mostTreatments[random.Next(mostTreatments.Count)].Id
@@ -296,7 +296,7 @@ namespace WineApi.Seeder
                 entries.Add(new FermentationEntry
                 {
                     Date = DateTime.Now.AddDays(-random.Next(1, 365)).ToUniversalTime(),
-                    Density = (float)(random.NextDouble() * 100),
+                    Density = (float)(random.NextDouble() * (FermentationEntryConstraints.MaxDensity - FermentationEntryConstraints.MinDensity) +FermentationEntryConstraints.MinDensity),
                     WineId = wines[random.Next(wines.Count)].Id
                 });
             }
@@ -313,7 +313,7 @@ namespace WineApi.Seeder
                 {
                     AdditiveTypeId = additiveTypes[random.Next(additiveTypes.Count)].Id,
                     Date = DateTime.Now.AddDays(-random.Next(1, 365)).ToUniversalTime(),
-                    AmountGrammsPerLitre = (float)(random.NextDouble() * 10),
+                    AmountGrammsPerLitre = (float)(random.NextDouble() * (AdditiveConstraints.MaxAmountGrammsPerLitre - AdditiveConstraints.MinAmountGrammsPerLitre) + AdditiveConstraints.MinAmountGrammsPerLitre),
                     WineId = wines[random.Next(wines.Count)].Id
                 });
             }

@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using WineApi.Context;
 using WineApi.Helpers;
 using WineApi.Model;
+using WineApi.Model.Contraints;
 using WineApi.Model.DTO;
 
 namespace WineApi.Controllers
@@ -98,6 +99,14 @@ namespace WineApi.Controllers
                 }
             }
 
+            var (isValid, error) = AdditiveConstraints.CheckAdditive(additive);
+
+            if (!isValid)
+            {
+                return BadRequest(error);
+            }
+
+
             _context.Entry(additive).State = EntityState.Modified;
 
             try
@@ -145,6 +154,13 @@ namespace WineApi.Controllers
                 {
                     return Unauthorized();
                 }
+            }
+
+            var (isValid, error) = AdditiveConstraints.CheckAdditive(additive);
+
+            if (!isValid)
+            {
+                return BadRequest(error);
             }
 
             var newAdditive = additive;

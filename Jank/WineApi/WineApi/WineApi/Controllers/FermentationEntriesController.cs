@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using WineApi.Context;
 using WineApi.Helpers;
 using WineApi.Model;
+using WineApi.Model.Contraints;
 using WineApi.Model.DTO;
 
 namespace WineApi.Controllers
@@ -99,6 +100,12 @@ namespace WineApi.Controllers
                 return NotFound(); 
             }
 
+            var (isValid, error) = FermentationEntryConstraints.CheckFermentationEntry(fermentationEntry);
+
+            if (!isValid)
+            {
+                return BadRequest(error);
+            }
 
             _context.Entry(fermentationEntry).State = EntityState.Modified;
 
@@ -154,6 +161,13 @@ namespace WineApi.Controllers
             if (wine == null)
             {
                 return NotFound();
+            }
+
+            var (isValid, error) = FermentationEntryConstraints.CheckFermentationEntry(fermentationEntry);
+
+            if (!isValid)
+            {
+                return BadRequest(error);
             }
 
             var newFermentationEntry = fermentationEntry;
