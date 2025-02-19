@@ -20,7 +20,7 @@ namespace WineApi.Controllers
     {
         private readonly WineDbContext _context;
 
-        private AuthHelper authHelper;
+        private AuthHelper authHelper = new AuthHelper();
 
         public WinesController(WineDbContext context)
         {

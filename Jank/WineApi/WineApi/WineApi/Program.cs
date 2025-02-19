@@ -20,8 +20,7 @@ namespace WineApi
             var conn = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<WineDbContext>(options => options.UseNpgsql(conn));
 
-            builder.Services.AddControllers();
-
+            builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(options =>
             {

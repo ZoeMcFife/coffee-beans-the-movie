@@ -1,23 +1,33 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace WineApi.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class added_guids : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "AdditiveTypes",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Type = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AdditiveTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MostTreatments",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     IsTreated = table.Column<bool>(type: "boolean", nullable: false),
                     TreatmentDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
@@ -30,8 +40,7 @@ namespace WineApi.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Username = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
                     Password = table.Column<string>(type: "text", nullable: false)
@@ -45,16 +54,15 @@ namespace WineApi.Migrations
                 name: "Wines",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
                     MostWeight = table.Column<float>(type: "real", nullable: false),
                     HarvestDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     VolumeInHectoLitre = table.Column<float>(type: "real", nullable: false),
                     Container = table.Column<string>(type: "text", nullable: false),
                     ProductionType = table.Column<string>(type: "text", nullable: false),
-                    MostTreatmentId = table.Column<int>(type: "integer", nullable: false)
+                    MostTreatmentId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -63,8 +71,7 @@ namespace WineApi.Migrations
                         name: "FK_Wines_MostTreatments_MostTreatmentId",
                         column: x => x.MostTreatmentId,
                         principalTable: "MostTreatments",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Wines_Users_UserId",
                         column: x => x.UserId,
@@ -77,19 +84,21 @@ namespace WineApi.Migrations
                 name: "Additives",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Type = table.Column<string>(type: "text", nullable: false),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Time = table.Column<string>(type: "text", nullable: false),
                     AmountGrammsPerLitre = table.Column<float>(type: "real", nullable: false),
-                    AmountGrammsPerHectoLitre = table.Column<float>(type: "real", nullable: false),
-                    AmountGrammsPer1000Litre = table.Column<float>(type: "real", nullable: false),
-                    WineId = table.Column<int>(type: "integer", nullable: false)
+                    AdditiveTypeId = table.Column<Guid>(type: "uuid", nullable: false),
+                    WineId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Additives", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Additives_AdditiveTypes_AdditiveTypeId",
+                        column: x => x.AdditiveTypeId,
+                        principalTable: "AdditiveTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Additives_Wines_WineId",
                         column: x => x.WineId,
@@ -102,11 +111,10 @@ namespace WineApi.Migrations
                 name: "FermentationEntries",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Density = table.Column<float>(type: "real", nullable: false),
-                    WineId = table.Column<int>(type: "integer", nullable: false)
+                    WineId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -118,6 +126,11 @@ namespace WineApi.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Additives_AdditiveTypeId",
+                table: "Additives",
+                column: "AdditiveTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Additives_WineId",
@@ -148,6 +161,9 @@ namespace WineApi.Migrations
 
             migrationBuilder.DropTable(
                 name: "FermentationEntries");
+
+            migrationBuilder.DropTable(
+                name: "AdditiveTypes");
 
             migrationBuilder.DropTable(
                 name: "Wines");

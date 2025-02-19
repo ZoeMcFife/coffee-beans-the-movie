@@ -25,7 +25,7 @@ namespace WineApi.Controllers
         private readonly WineDbContext _context;
         private readonly IConfiguration _configuration;
 
-        private AuthHelper authHelper;
+        private AuthHelper authHelper = new AuthHelper();
 
         public UsersController(WineDbContext context, IConfiguration configuration)
         {

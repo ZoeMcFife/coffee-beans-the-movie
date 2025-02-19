@@ -18,7 +18,7 @@ namespace WineApi.Controllers
     public class FermentationEntriesController : ControllerBase
     {
         private readonly WineDbContext _context;
-        private AuthHelper authHelper;
+        private AuthHelper authHelper = new AuthHelper();
 
         public FermentationEntriesController(WineDbContext context)
         {

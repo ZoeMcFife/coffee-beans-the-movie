@@ -17,7 +17,7 @@ namespace WineApi.Controllers
     public class AdditiveTypesController : ControllerBase
     {
         private readonly WineDbContext _context;
-        private AuthHelper authHelper;
+        private AuthHelper authHelper = new AuthHelper();
 
         public AdditiveTypesController(WineDbContext context)
         {

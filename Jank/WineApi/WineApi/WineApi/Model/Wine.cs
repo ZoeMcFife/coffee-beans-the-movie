@@ -1,8 +1,14 @@
-﻿namespace WineApi.Model
+﻿using System.Text.Json.Serialization;
+using System.Xml.Serialization;
+
+namespace WineApi.Model
 {
     public class Wine
     {
+        [JsonIgnore]
+        [XmlIgnore]
         public User User { get; set; }
+
         public Guid UserId { get; set; }
 
         public Guid Id { get; set; }
@@ -15,8 +21,14 @@
 
         public Guid? MostTreatmentId { get; set; }
 
-        public MostTreatment? MostTreatment { get; set; } 
-        public List<FermentationEntry> FermentationEntries { get; set; } 
+        [JsonIgnore]
+        [XmlIgnore]
+        public MostTreatment? MostTreatment { get; set; }
+        [JsonIgnore]
+        [XmlIgnore]
+        public List<FermentationEntry> FermentationEntries { get; set; }
+        [JsonIgnore]
+        [XmlIgnore]
         public List<Additive> Additives { get; set; } 
     }
 }
