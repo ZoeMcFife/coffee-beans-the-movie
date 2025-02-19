@@ -53,12 +53,54 @@ namespace WineApi.Seeder
 
             fermentationEntries = _context.Set<FermentationEntry>().ToList();
 
-            var additives = GenerateAdditives(60, wines);
+            var addityTypes = GenerateAdditiveTypes(10);
+            _context.Set<AdditiveType>().AddRange(addityTypes);
+            _context.SaveChanges();
+
+            var additives = GenerateAdditives(60, wines, addityTypes);
             _context.Set<Additive>().AddRange(additives);
             _context.SaveChanges();
 
             additives = _context.Set<Additive>().ToList();
 
+        }
+
+
+        private List<AdditiveType> GenerateAdditiveTypes(int count)
+        {
+            var additiveNames = new List<string>
+            {
+                "Sulfur Dioxide",
+                "Tartaric Acid",
+                "Citric Acid",
+                "Potassium Sorbate",
+                "Ascorbic Acid",
+                "Gum Arabic",
+                "Bentonite Clay",
+                "Oak Extract",
+                "Mega Purple",
+                "Copper Sulfate",
+                "Calcium Carbonate",
+                "Egg Whites",
+                "Gelatin",
+                "Isinglass",
+                "Casein"
+            };
+
+            var additives = new List<AdditiveType>();
+            var random = new Random();
+
+            for (int i = 0; i < count; i++)
+            {
+                string randomType = additiveNames[random.Next(additiveNames.Count)];
+                additives.Add(new AdditiveType
+                {
+                    Id = Guid.NewGuid(),
+                    Type = randomType
+                });
+            }
+
+            return additives;
         }
 
         private List<User> GenerateUsers(int count)
@@ -97,7 +139,7 @@ namespace WineApi.Seeder
                     Container = $"Container {i}",
                     ProductionType = "Bio",
                     UserId = users[random.Next(users.Count - 1)].Id,
-                    MostTreatmentId = mostTreatments[i - 1].Id
+                    MostTreatmentId = mostTreatments[random.Next(mostTreatments.Count)].Id
                 });
             }
             return wines;
@@ -142,7 +184,7 @@ namespace WineApi.Seeder
             return entries;
         }
 
-        private List<Additive> GenerateAdditives(int count, List<Wine> wines)
+        private List<Additive> GenerateAdditives(int count, List<Wine> wines, List<AdditiveType> additiveTypes)
         {
             var random = new Random();
             var additives = new List<Additive>();
@@ -150,11 +192,9 @@ namespace WineApi.Seeder
             {
                 additives.Add(new Additive
                 {
-                    Type = "Sulfur",
+                    AdditiveTypeId = additiveTypes[random.Next(additiveTypes.Count)].Id,
                     Date = DateTime.Now.AddDays(-random.Next(1, 365)).ToUniversalTime(),
                     AmountGrammsPerLitre = (float)(random.NextDouble() * 10),
-                    AmountGrammsPerHectoLitre = (float)(random.NextDouble() * 10),
-                    AmountGrammsPer1000Litre = (float)(random.NextDouble() * 10),
                     WineId = wines[random.Next(wines.Count)].Id
                 });
             }

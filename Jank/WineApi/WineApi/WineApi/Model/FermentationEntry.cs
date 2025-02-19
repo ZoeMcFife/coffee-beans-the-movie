@@ -2,12 +2,12 @@
 {
     public class FermentationEntry
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public DateTime Date { get; set; } 
         public float Density { get; set; }
 
-        public int WineId { get; set; }
+        public Guid WineId { get; set; }
     }
 
 }

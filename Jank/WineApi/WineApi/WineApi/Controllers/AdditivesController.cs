@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WineApi.Context;
+using WineApi.Helpers;
 using WineApi.Model;
 using WineApi.Model.DTO;
 
@@ -17,6 +18,7 @@ namespace WineApi.Controllers
     public class AdditivesController : ControllerBase
     {
         private readonly WineDbContext _context;
+        private AuthHelper authHelper;
 
         public AdditivesController(WineDbContext context)
         {
@@ -26,17 +28,13 @@ namespace WineApi.Controllers
         // GET: api/Additives/5
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<AdditiveDTO>> GetAdditive(int id)
+        public async Task<ActionResult<Additive>> GetAdditive(Guid id)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var additive = await _context.Additives.Include(a => a.WineId).FirstOrDefaultAsync(a => a.Id == id);
@@ -52,7 +50,7 @@ namespace WineApi.Controllers
             {
                 var wine = await _context.Wines.FindAsync(wineid);
 
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -64,29 +62,25 @@ namespace WineApi.Controllers
             }
 
 
-            return AdditiveDTO.MapAdditiveToDto(additive);
+            return additive;
         }
 
         // PUT: api/Additives/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> PutAdditive(int id, AdditiveDTO additive)
+        public async Task<IActionResult> PutAdditive(Guid id, Additive additive)
         {
             if (id != additive.Id)
             {
                 return BadRequest();
             }
 
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var wine = _context.Wines.Find(additive.WineId);
@@ -98,13 +92,13 @@ namespace WineApi.Controllers
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
             }
 
-            _context.Entry(AdditiveDTO.MapDtoToAdditive(additive)).State = EntityState.Modified;
+            _context.Entry(additive).State = EntityState.Modified;
 
             try
             {
@@ -129,17 +123,13 @@ namespace WineApi.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<AdditiveDTO>> PostAdditive(AdditiveDTO additive)
+        public async Task<ActionResult<Additive>> PostAdditive(Additive additive)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var wine = _context.Wines.Find(additive.WineId);
@@ -151,13 +141,13 @@ namespace WineApi.Controllers
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
             }
 
-            var newAdditive = AdditiveDTO.MapDtoToAdditive(additive);
+            var newAdditive = additive;
             _context.Additives.Add(newAdditive);
             await _context.SaveChangesAsync();
 
@@ -167,17 +157,13 @@ namespace WineApi.Controllers
         // DELETE: api/Additives/5
         [HttpDelete("{id}")]
         [Authorize]
-        public async Task<IActionResult> DeleteAdditive(int id)
+        public async Task<IActionResult> DeleteAdditive(Guid id)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var additive = await _context.Additives.FindAsync(id);
@@ -195,7 +181,7 @@ namespace WineApi.Controllers
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -207,7 +193,7 @@ namespace WineApi.Controllers
             return NoContent();
         }
 
-        private bool AdditiveExists(int id)
+        private bool AdditiveExists(Guid id)
         {
             return _context.Additives.Any(e => e.Id == id);
         }

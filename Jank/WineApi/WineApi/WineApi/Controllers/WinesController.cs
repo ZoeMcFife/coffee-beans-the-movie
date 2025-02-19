@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WineApi.Context;
+using WineApi.Helpers;
 using WineApi.Model;
 using WineApi.Model.DTO;
 
@@ -19,57 +20,50 @@ namespace WineApi.Controllers
     {
         private readonly WineDbContext _context;
 
+        private AuthHelper authHelper;
+
         public WinesController(WineDbContext context)
         {
             _context = context;
         }
 
+
         // GET: api/Users/Wines
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<WineDTO>>> GetWines()
+        public async Task<ActionResult<IEnumerable<Wine>>> GetWines()
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
+            var results = authHelper.GetAuthenticatedUser(this);
+                
+            if (!results.IsAuthenticated)
             {
-                return Unauthorized();
-            }
-
-            if (!int.TryParse(userIdClaim.Value, out var userId))
-            {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var wines = await _context.Wines
-                .Where(w => w.UserId == userId)
+                .Where(w => w.UserId == results.UserId)
                 .ToListAsync(); 
 
-            var wineDtos = wines.Select(w => WineDTO.MapWineToDto(w)).ToList();
-
-            return Ok(wineDtos);
+            return Ok(wines);
         }
 
         // GET: api/Wines/5
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<WineDTO>> GetWine(int id)
+        public async Task<ActionResult<Wine>> GetWine(int id)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var wine = await _context.Wines.FindAsync(id);
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -80,29 +74,25 @@ namespace WineApi.Controllers
                 return NotFound();
             }
 
-            return WineDTO.MapWineToDto(wine);
+            return wine;
         }
 
         // PUT: api/Wines/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> PutWine(int id, WineDTO wine)
+        public async Task<IActionResult> PutWine(Guid id, Wine wine)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -113,7 +103,7 @@ namespace WineApi.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(WineDTO.MapDtoToWine(wine)).State = EntityState.Modified;
+            _context.Entry(wine).State = EntityState.Modified;
 
             try
             {
@@ -138,54 +128,45 @@ namespace WineApi.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<WineDTO>> PostWine(WineDTO wine)
+        public async Task<ActionResult<Wine>> PostWine(Wine wine)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
+            var results = authHelper.GetAuthenticatedUser(this);
+
+            if (!results.IsAuthenticated)
+            {
+                return results.ErrorResult;
+            }
+
+            wine.UserId = (Guid)results.UserId;
+
+            if (wine.UserId != results.UserId)
             {
                 return Unauthorized();
             }
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
-            {
-                return BadRequest("Invalid user ID in token.");
-            }
-
-            wine.UserId = userId;
-
-            if (wine.UserId != userId)
-            {
-                return Unauthorized();
-            }
-
-            var savedWine = WineDTO.MapDtoToWine(wine);
-            _context.Wines.Add(savedWine);
+            _context.Wines.Add(wine);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetWine", new { id = savedWine.Id }, savedWine);
+            return CreatedAtAction("GetWine", new { id = wine.Id }, wine);
         }
 
         // DELETE: api/Wines/5
         [HttpDelete("{id}")]
         [Authorize]
-        public async Task<IActionResult> DeleteWine(int id)
+        public async Task<IActionResult> DeleteWine(Guid id)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var wine = await _context.Wines.FindAsync(id);
 
             if (wine != null)
             {
-                if (wine.UserId != userId) 
+                if (wine.UserId != results.UserId) 
                 {
                     return Unauthorized();
                 }
@@ -204,17 +185,13 @@ namespace WineApi.Controllers
 
         [HttpGet("{id}/Additives")]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<AdditiveDTO>>> GetAdditives(int id)
+        public async Task<ActionResult<IEnumerable<Additive>>> GetAdditives(Guid id)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var wine = await _context.Wines
@@ -223,7 +200,7 @@ namespace WineApi.Controllers
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -234,24 +211,20 @@ namespace WineApi.Controllers
                 return NotFound();
             }
 
-            var additivesDto = wine.Additives.Select(AdditiveDTO.MapAdditiveToDto);
+            var additivesDto = wine.Additives;
 
             return Ok(additivesDto);
         }
 
         [HttpGet("{id}/FermentationEntries")]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<FermentationEntryDTO>>> GetFermentationEntries(int id)
+        public async Task<ActionResult<IEnumerable<FermentationEntry>>> GetFermentationEntries(Guid id)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var wine = await _context.Wines
@@ -260,7 +233,7 @@ namespace WineApi.Controllers
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -271,12 +244,12 @@ namespace WineApi.Controllers
                 return NotFound();
             }
 
-            var fermentationEntries = wine.FermentationEntries.Select(FermentationEntryDTO.MapFermentationEntryToDto);
+            var fermentationEntries = wine.FermentationEntries;
 
             return Ok(fermentationEntries);
         }
 
-        private bool WineExists(int id)
+        private bool WineExists(Guid id)
         {
             return _context.Wines.Any(e => e.Id == id);
         }
@@ -289,17 +262,13 @@ namespace WineApi.Controllers
         // GET: api/MostTreatments/5
         [HttpGet("{id}/MostTreatment")]
         [Authorize]
-        public async Task<ActionResult<MostTreatmentDTO>> GetMostTreatment(int id)
+        public async Task<ActionResult<MostTreatment>> GetMostTreatment(Guid id)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized(); 
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var wine = await _context.Wines
@@ -308,7 +277,7 @@ namespace WineApi.Controllers
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -326,24 +295,20 @@ namespace WineApi.Controllers
                 return NotFound();
             }
 
-            return MostTreatmentDTO.MapMostTreatmentToDto(mostTreatment);
+            return Ok(mostTreatment);
         }
 
         // PUT: api/MostTreatments/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}/MostTreatment")]
         [Authorize]
-        public async Task<IActionResult> PutMostTreatment(int id, MostTreatmentDTO mostTreatment)
+        public async Task<IActionResult> PutMostTreatment(Guid id, MostTreatment mostTreatment)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized(); 
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var wine = await _context.Wines
@@ -352,7 +317,7 @@ namespace WineApi.Controllers
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -373,7 +338,7 @@ namespace WineApi.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(MostTreatmentDTO.MapDtoToMostTreatment(mostTreatment)).State = EntityState.Modified;
+            _context.Entry(mostTreatment).State = EntityState.Modified;
 
             try
             {
@@ -398,17 +363,13 @@ namespace WineApi.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost("{id}/MostTreatment")]
         [Authorize]
-        public async Task<ActionResult<MostTreatmentDTO>> PostMostTreatment(int id, MostTreatmentDTO mostTreatment)
+        public async Task<ActionResult<MostTreatment>> PostMostTreatment(Guid id, MostTreatment mostTreatment)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var wine = await _context.Wines
@@ -417,7 +378,7 @@ namespace WineApi.Controllers
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -429,7 +390,7 @@ namespace WineApi.Controllers
             }
             
 
-            _context.MostTreatments.Add(MostTreatmentDTO.MapDtoToMostTreatment(mostTreatment));
+            _context.MostTreatments.Add(mostTreatment);
             await _context.SaveChangesAsync();
 
             wine.MostTreatment = _context.MostTreatments.FirstOrDefault(w => w.Id == mostTreatment.Id);
@@ -441,17 +402,13 @@ namespace WineApi.Controllers
         // DELETE: api/MostTreatments/5
         [HttpDelete("{id}/MostTreatment")]
         [Authorize]
-        public async Task<IActionResult> DeleteMostTreatment(int id)
+        public async Task<IActionResult> DeleteMostTreatment(Guid id)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
             var wine = await _context.Wines
@@ -460,7 +417,7 @@ namespace WineApi.Controllers
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -488,7 +445,7 @@ namespace WineApi.Controllers
             return NoContent();
         }
 
-        private bool MostTreatmentExists(int id)
+        private bool MostTreatmentExists(Guid id)
         {
             return _context.MostTreatments.Any(e => e.Id == id);
         }

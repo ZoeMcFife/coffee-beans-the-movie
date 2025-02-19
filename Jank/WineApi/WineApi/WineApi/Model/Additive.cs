@@ -2,12 +2,13 @@
 {
     public class Additive
     {
-        public int Id { get; set; }
-        public string Type { get; set; }
+        public Guid Id { get; set; }
         public DateTime Date { get; set; }
         public float AmountGrammsPerLitre { get; set; }
-        public float AmountGrammsPerHectoLitre { get; set; } 
-        public float AmountGrammsPer1000Litre { get; set; }
-        public int WineId { get; set; }
+
+        public AdditiveType AdditiveType { get; set; }
+
+        public Guid AdditiveTypeId { get; set; }
+        public Guid WineId { get; set; }
     }
 }
