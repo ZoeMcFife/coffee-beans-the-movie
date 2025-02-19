@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using WineApi.Context;
+using WineApi.Helpers;
 using WineApi.Model;
 using WineApi.Model.DTO;
 
@@ -24,6 +25,8 @@ namespace WineApi.Controllers
         private readonly WineDbContext _context;
         private readonly IConfiguration _configuration;
 
+        private AuthHelper authHelper = new AuthHelper();
+
         public UsersController(WineDbContext context, IConfiguration configuration)
         {
             _context = context;
@@ -35,19 +38,14 @@ namespace WineApi.Controllers
         [Authorize]
         public async Task<ActionResult<UserDTO>> GetUser()
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
+            var results = authHelper.GetAuthenticatedUser(this);
+
+            if (!results.IsAuthenticated)
             {
-                return Unauthorized();
+                return results.ErrorResult;
             }
 
-            // Parse the userId from the claim
-            if (!int.TryParse(userIdClaim.Value, out var userId))
-            {
-                return BadRequest("Invalid user ID in token.");
-            }
-
-            var user = await _context.Users.FindAsync(userId);
+            var user = await _context.Users.FindAsync(results.UserId);
 
             if (user == null)
             {
@@ -62,18 +60,14 @@ namespace WineApi.Controllers
         [Authorize]
         public async Task<IActionResult> DeleteUser()
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
+            var results = authHelper.GetAuthenticatedUser(this);
+
+            if (!results.IsAuthenticated)
             {
-                return Unauthorized();
+                return results.ErrorResult;
             }
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
-            {
-                return BadRequest("Invalid user ID in token.");
-            }
-
-            var user = await _context.Users.FindAsync(userId);
+            var user = await _context.Users.FindAsync(results.UserId);
             if (user == null)
             {
                 return NotFound();
@@ -168,7 +162,7 @@ namespace WineApi.Controllers
             return storedHash == computedHashString;
         }
 
-        private bool UserExists(int id)
+        private bool UserExists(Guid id)
         {
             return _context.Users.Any(e => e.Id == id);
         }

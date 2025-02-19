@@ -6,7 +6,7 @@ namespace WineApi.Model.Contraints
     public class WineBarrelConstraints
     {
         public static float MinMostWeight = 1;
-        public static float MaxMostWeight = 1000;
+        public static float MaxMostWeight = 100000;
 
         public static float MinVolume = 0;
         public static float MaxVolume = 100000;

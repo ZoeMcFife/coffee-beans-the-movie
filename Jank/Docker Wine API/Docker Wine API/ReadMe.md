@@ -36,6 +36,8 @@
 - Default User:
     - testUser1@gmail.com
     - password123
-
+- Admin User:
+    - admin
+    - admin
 - You'll get a jwt Token in return
 - Use that to authorize further requests! 
