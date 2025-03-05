@@ -1,12 +1,13 @@
-# Neutrale Aufnahme einer Uhr
+# Inszenierte Aufnahme einer Uhr
 ## Plan
 
 ### Bild Komposition
 
-![alt text](image.png)
+![alt text](image-2.png)
 
-- Bild seitlich gestellt
-- Steine und Blätter 
+- Uhr etwas seitlich gestellt
+- Steine, Blätter
+- Ast im Hintergrund
 
 ### Kamera Einstellungen
 
@@ -19,4 +20,4 @@
 
 ### Belichtungsdiagram
 
-![alt text](<Neutrale Aufnahme by Cmdrprotogen27.png>)
+![alt text](image-1.png)
