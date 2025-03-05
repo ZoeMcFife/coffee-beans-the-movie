@@ -17,4 +17,4 @@
 
 ### Belichtungsdiagram
 
-![alt text](<Neutrale Aufnahme by Cmdrprotogen27.png>)
+![alt text](image-1.png)
