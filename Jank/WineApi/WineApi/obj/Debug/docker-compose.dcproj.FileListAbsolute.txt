@@ -83,3 +83,6 @@ X:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\WineApi.staticwe
 X:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 X:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 X:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\System.Text.Json.dll
+C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\System.Text.Encodings.Web.dll
+C:\GitHub\coffee-beans-the-movie\Jank\WineApi\WineApi\bin\Debug\System.IO.Pipelines.dll

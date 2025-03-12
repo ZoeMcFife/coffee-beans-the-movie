@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WineApi.Context;
+using WineApi.Helpers;
 using WineApi.Model;
+using WineApi.Model.Contraints;
 using WineApi.Model.DTO;
 
 namespace WineApi.Controllers
@@ -17,6 +19,7 @@ namespace WineApi.Controllers
     public class FermentationEntriesController : ControllerBase
     {
         private readonly WineDbContext _context;
+        private AuthHelper authHelper = new AuthHelper();
 
         public FermentationEntriesController(WineDbContext context)
         {
@@ -27,18 +30,15 @@ namespace WineApi.Controllers
         // GET: api/FermentationEntries/5
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<FermentationEntryDTO>> GetFermentationEntry(int id)
+        public async Task<ActionResult<FermentationEntry>> GetFermentationEntry(Guid id)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
+            var results = authHelper.GetAuthenticatedUser(this);
+
+            if (!results.IsAuthenticated)
             {
-                return Unauthorized();
+                return results.ErrorResult;
             }
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
-            {
-                return BadRequest("Invalid user ID in token.");
-            }
 
             var fermentationEntry = await _context.FermentationEntries.FindAsync(id);
 
@@ -51,9 +51,9 @@ namespace WineApi.Controllers
 
             if (wineId != null)
             {
-                var wine = await _context.Wines.FindAsync(wineId);
+                var wine = await _context.WineBarrels.FindAsync(wineId);
 
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -64,36 +64,32 @@ namespace WineApi.Controllers
                 return NotFound();
             }
 
-            return FermentationEntryDTO.MapFermentationEntryToDto(fermentationEntry);
+            return fermentationEntry;
         }
 
         // PUT: api/FermentationEntries/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> PutFermentationEntry(int id, FermentationEntryDTO fermentationEntry)
+        public async Task<IActionResult> PutFermentationEntry(Guid id, FermentationEntry fermentationEntry)
         {
+            var results = authHelper.GetAuthenticatedUser(this);
+
+            if (!results.IsAuthenticated)
+            {
+                return results.ErrorResult;
+            }
+
             if (id != fermentationEntry.Id)
             {
                 return BadRequest();
             }
 
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
-
-            if (!int.TryParse(userIdClaim.Value, out var userId))
-            {
-                return BadRequest("Invalid user ID in token.");
-            }
-
-            var wine = _context.Wines.Find(fermentationEntry.WineId);
+            var wine = _context.WineBarrels.Find(fermentationEntry.WineId);
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -104,8 +100,14 @@ namespace WineApi.Controllers
                 return NotFound(); 
             }
 
+            var (isValid, error) = FermentationEntryConstraints.CheckFermentationEntry(fermentationEntry);
 
-            _context.Entry(FermentationEntryDTO.MapDtoToFermentationEntry(fermentationEntry)).State = EntityState.Modified;
+            if (!isValid)
+            {
+                return BadRequest(error);
+            }
+
+            _context.Entry(fermentationEntry).State = EntityState.Modified;
 
             try
             {
@@ -130,17 +132,13 @@ namespace WineApi.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<FermentationEntryDTO>> PostFermentationEntry(FermentationEntryDTO fermentationEntry)
+        public async Task<ActionResult<FermentationEntry>> PostFermentationEntry(FermentationEntry fermentationEntry)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized(); 
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
 
 
@@ -150,11 +148,11 @@ namespace WineApi.Controllers
             }
 
 
-            var wine = _context.Wines.Find(fermentationEntry.WineId);
+            var wine = _context.WineBarrels.Find(fermentationEntry.WineId);
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -165,7 +163,14 @@ namespace WineApi.Controllers
                 return NotFound();
             }
 
-            var newFermentationEntry = FermentationEntryDTO.MapDtoToFermentationEntry(fermentationEntry);
+            var (isValid, error) = FermentationEntryConstraints.CheckFermentationEntry(fermentationEntry);
+
+            if (!isValid)
+            {
+                return BadRequest(error);
+            }
+
+            var newFermentationEntry = fermentationEntry;
             _context.FermentationEntries.Add(newFermentationEntry);
             await _context.SaveChangesAsync();
 
@@ -175,19 +180,14 @@ namespace WineApi.Controllers
         // DELETE: api/FermentationEntries/5
         [HttpDelete("{id}")]
         [Authorize]
-        public async Task<IActionResult> DeleteFermentationEntry(int id)
+        public async Task<IActionResult> DeleteFermentationEntry(Guid id)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
+            var results = authHelper.GetAuthenticatedUser(this);
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            if (!results.IsAuthenticated)
             {
-                return BadRequest("Invalid user ID in token.");
+                return results.ErrorResult;
             }
-
 
             var fermentationEntry = await _context.FermentationEntries.FindAsync(id);
             if (fermentationEntry == null)
@@ -195,11 +195,11 @@ namespace WineApi.Controllers
                 return NotFound();
             }
 
-            var wine = _context.Wines.Find(fermentationEntry.WineId);
+            var wine = _context.WineBarrels.Find(fermentationEntry.WineId);
 
             if (wine != null)
             {
-                if (wine.UserId != userId)
+                if (wine.UserId != results.UserId)
                 {
                     return Unauthorized();
                 }
@@ -216,7 +216,7 @@ namespace WineApi.Controllers
             return NoContent();
         }
 
-        private bool FermentationEntryExists(int id)
+        private bool FermentationEntryExists(Guid id)
         {
             return _context.FermentationEntries.Any(e => e.Id == id);
         }

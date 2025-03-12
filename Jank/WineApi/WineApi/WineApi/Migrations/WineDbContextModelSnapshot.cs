@@ -24,17 +24,12 @@ namespace WineApi.Migrations
 
             modelBuilder.Entity("WineApi.Model.Additive", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("uuid");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<float>("AmountGrammsPer1000Litre")
-                        .HasColumnType("real");
-
-                    b.Property<float>("AmountGrammsPerHectoLitre")
-                        .HasColumnType("real");
+                    b.Property<Guid>("AdditiveTypeId")
+                        .HasColumnType("uuid");
 
                     b.Property<float>("AmountGrammsPerLitre")
                         .HasColumnType("real");
@@ -42,27 +37,41 @@ namespace WineApi.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<Guid?>("WineBarrelId")
+                        .HasColumnType("uuid");
 
-                    b.Property<int>("WineId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("WineId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("WineId");
+                    b.HasIndex("AdditiveTypeId");
+
+                    b.HasIndex("WineBarrelId");
 
                     b.ToTable("Additives");
                 });
 
+            modelBuilder.Entity("WineApi.Model.AdditiveType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AdditiveTypes");
+                });
+
             modelBuilder.Entity("WineApi.Model.FermentationEntry", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
@@ -70,23 +79,24 @@ namespace WineApi.Migrations
                     b.Property<float>("Density")
                         .HasColumnType("real");
 
-                    b.Property<int>("WineId")
-                        .HasColumnType("integer");
+                    b.Property<Guid?>("WineBarrelId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("WineId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("WineId");
+                    b.HasIndex("WineBarrelId");
 
                     b.ToTable("FermentationEntries");
                 });
 
             modelBuilder.Entity("WineApi.Model.MostTreatment", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<bool>("IsTreated")
                         .HasColumnType("boolean");
@@ -101,11 +111,12 @@ namespace WineApi.Migrations
 
             modelBuilder.Entity("WineApi.Model.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("uuid");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    b.Property<bool>("AdminRights")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -124,23 +135,23 @@ namespace WineApi.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("WineApi.Model.Wine", b =>
+            modelBuilder.Entity("WineApi.Model.WineBarrel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("uuid");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    b.Property<Guid?>("CurrentWineBarrelHistoryId")
+                        .HasColumnType("uuid");
 
-                    b.Property<string>("Container")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<Guid?>("CurrentWineTypeId")
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("HarvestDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("MostTreatmentId")
-                        .HasColumnType("integer");
+                    b.Property<Guid?>("MostTreatmentId")
+                        .HasColumnType("uuid");
 
                     b.Property<float>("MostWeight")
                         .HasColumnType("real");
@@ -153,10 +164,10 @@ namespace WineApi.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
 
-                    b.Property<float>("VolumeInHectoLitre")
+                    b.Property<float>("VolumeInLitre")
                         .HasColumnType("real");
 
                     b.HasKey("Id");
@@ -165,32 +176,73 @@ namespace WineApi.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Wines");
+                    b.ToTable("WineBarrels");
+                });
+
+            modelBuilder.Entity("WineApi.Model.WineBarrelHistory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("WineBarrelId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("WineTypeId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WineBarrelId");
+
+                    b.HasIndex("WineTypeId");
+
+                    b.ToTable("WineBarrelHistories");
+                });
+
+            modelBuilder.Entity("WineApi.Model.WineType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WineTypes");
                 });
 
             modelBuilder.Entity("WineApi.Model.Additive", b =>
                 {
-                    b.HasOne("WineApi.Model.Wine", "Wine")
-                        .WithMany("Additives")
-                        .HasForeignKey("WineId")
+                    b.HasOne("WineApi.Model.AdditiveType", "AdditiveType")
+                        .WithMany()
+                        .HasForeignKey("AdditiveTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Wine");
+                    b.HasOne("WineApi.Model.WineBarrel", null)
+                        .WithMany("Additives")
+                        .HasForeignKey("WineBarrelId");
+
+                    b.Navigation("AdditiveType");
                 });
 
             modelBuilder.Entity("WineApi.Model.FermentationEntry", b =>
                 {
-                    b.HasOne("WineApi.Model.Wine", "Wine")
+                    b.HasOne("WineApi.Model.WineBarrel", null)
                         .WithMany("FermentationEntries")
-                        .HasForeignKey("WineId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Wine");
+                        .HasForeignKey("WineBarrelId");
                 });
 
-            modelBuilder.Entity("WineApi.Model.Wine", b =>
+            modelBuilder.Entity("WineApi.Model.WineBarrel", b =>
                 {
                     b.HasOne("WineApi.Model.MostTreatment", "MostTreatment")
                         .WithMany()
@@ -207,11 +259,32 @@ namespace WineApi.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("WineApi.Model.Wine", b =>
+            modelBuilder.Entity("WineApi.Model.WineBarrelHistory", b =>
+                {
+                    b.HasOne("WineApi.Model.WineBarrel", "WineBarrel")
+                        .WithMany("History")
+                        .HasForeignKey("WineBarrelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WineApi.Model.WineType", "WineType")
+                        .WithMany()
+                        .HasForeignKey("WineTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WineBarrel");
+
+                    b.Navigation("WineType");
+                });
+
+            modelBuilder.Entity("WineApi.Model.WineBarrel", b =>
                 {
                     b.Navigation("Additives");
 
                     b.Navigation("FermentationEntries");
+
+                    b.Navigation("History");
                 });
 #pragma warning restore 612, 618
         }
