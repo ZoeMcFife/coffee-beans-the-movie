@@ -29,3 +29,8 @@ Masken um:
 ![alt text](image-8.png)
 
 ![alt text](image-9.png)
+
+photoshop export
+
+![](image-10.png)
+
