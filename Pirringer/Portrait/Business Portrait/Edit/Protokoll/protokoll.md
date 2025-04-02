@@ -40,3 +40,9 @@ gaussian blur im hintergrund
 color balance 
 
 ![alt text](image-10.png)
+
+### Retusche 
+
+mittels healing brush, verschmutzungen entfernen
+
+![alt text](image-11.png)
