@@ -356,7 +356,7 @@ namespace WineApi.Controllers
             _context.WineBarrels.Add(wine);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetWine", new { id = wine.Id }, wine);
+            return CreatedAtAction("PostWineBarrel", new { id = wine.Id }, wine);
         }
 
         // DELETE: api/Wines/5
