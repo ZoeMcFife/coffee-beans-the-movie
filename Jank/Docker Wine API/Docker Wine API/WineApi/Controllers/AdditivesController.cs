@@ -38,7 +38,7 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            var additive = await _context.Additives.Include(a => a.WineId).FirstOrDefaultAsync(a => a.Id == id);
+            var additive = await _context.Additives.FindAsync(id);
 
             if (additive == null)
             {
