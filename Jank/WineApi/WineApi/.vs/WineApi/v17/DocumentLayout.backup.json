@@ -129,8 +129,7 @@
               "RelativeToolTip": "WineApi\\Controllers\\WineTypesController.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T14:43:58.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T14:43:58.47Z"
             },
             {
               "$type": "Document",
@@ -154,8 +153,7 @@
               "RelativeToolTip": "WineApi\\Context\\WineDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T09:08:00.462Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T09:08:00.462Z"
             },
             {
               "$type": "Document",
@@ -167,8 +165,7 @@
               "RelativeToolTip": "WineApi\\Controllers\\FermentationEntriesController.cs",
               "ViewState": "AgIAAJcAAAAAAAAAAAAAAJsAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:36:43.916Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T14:36:43.916Z"
             },
             {
               "$type": "Document",
@@ -180,8 +177,7 @@
               "RelativeToolTip": "WineApi\\Controllers\\AdditivesController.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:30:55.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T14:30:55.366Z"
             },
             {
               "$type": "Document",
@@ -193,8 +189,7 @@
               "RelativeToolTip": "WineApi\\Controllers\\AdditiveTypesController.cs",
               "ViewState": "AgIAAIcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:34:37.76Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T14:34:37.76Z"
             },
             {
               "$type": "Document",
@@ -360,7 +355,7 @@
               "RelativeDocumentMoniker": "WineApi\\Controllers\\WineBarrelsController.cs",
               "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Controllers\\WineBarrelsController.cs",
               "RelativeToolTip": "WineApi\\Controllers\\WineBarrelsController.cs",
-              "ViewState": "AgIAAMABAAAAAAAAAAAAAMYBAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAALUAAAAAAAAAAAAAAMEAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T13:41:12.311Z",
               "EditorCaption": ""
