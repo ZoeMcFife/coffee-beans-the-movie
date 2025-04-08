@@ -578,7 +578,7 @@ namespace WineApi.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok();
         }
 
         // POST: api/MostTreatments
