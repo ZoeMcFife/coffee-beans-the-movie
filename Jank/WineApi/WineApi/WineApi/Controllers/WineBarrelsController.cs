@@ -523,9 +523,7 @@ namespace WineApi.Controllers
                 return results.ErrorResult;
             }
 
-            var wine = await _context.WineBarrels
-               .Include(w => w.MostTreatment)
-               .FirstOrDefaultAsync(w => w.Id == id);
+            var wine = await _context.WineBarrels.FindAsync(id);
 
             if (wine != null)
             {
@@ -540,17 +538,29 @@ namespace WineApi.Controllers
                 return NotFound();
             }
 
-            if (wine.MostTreatment == null)
+            var most = await _context.MostTreatments.FindAsync(wine.MostTreatmentId);
+
+            if (most == null)
             {
                 return NotFound();
             }
 
-            if (wine.MostTreatment.Id != mostTreatment.Id)
+            if (wine.MostTreatmentId != most.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(mostTreatment).State = EntityState.Modified;
+            if (mostTreatment.IsTreated != null)
+            {
+                most.IsTreated = mostTreatment.IsTreated;
+            }
+
+            if (mostTreatment.TreatmentDate != null)
+            {
+                most.TreatmentDate = mostTreatment.TreatmentDate;
+            }
+
+            _context.Entry(most).State = EntityState.Modified;
 
             try
             {
