@@ -420,9 +420,9 @@ namespace WineApi.Controllers
                 return NotFound();
             }
 
-            var additivesDto = wine.Additives;
+            var additives = await _context.Additives.Where(a => a.WineId.Equals(id)).ToListAsync();
 
-            return Ok(additivesDto);
+            return Ok(additives);
         }
 
         [HttpGet("{id}/FermentationEntries")]
@@ -452,8 +452,9 @@ namespace WineApi.Controllers
             {
                 return NotFound();
             }
+            
+            var fermentationEntries = await _context.FermentationEntries.Where(a => a.WineId.Equals(id)).ToListAsync();
 
-            var fermentationEntries = wine.FermentationEntries;
 
             return Ok(fermentationEntries);
         }

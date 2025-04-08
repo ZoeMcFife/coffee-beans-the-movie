@@ -19,3 +19,30 @@
 ![](image-6.png)
 
 psd export
+
+
+photoshop
+
+select and mask
+
+![alt text](image-8.png)
+
+
+grüner farbsaum mit color replacing pinsel
+
+![alt text](image-7.png)
+
+
+gaussian blur im hintergrund
+
+![alt text](image-9.png)
+
+color balance 
+
+![alt text](image-10.png)
+
+### Retusche 
+
+mittels healing brush, verschmutzungen entfernen
+
+![alt text](image-11.png)
