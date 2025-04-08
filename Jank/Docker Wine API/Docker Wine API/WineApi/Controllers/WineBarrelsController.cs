@@ -151,6 +151,7 @@ namespace WineApi.Controllers
             await _context.WineBarrelHistories.AddAsync(newBarrelHistory);
 
             barrel.CurrentWineBarrelHistoryId = newBarrelHistory.Id;
+            barrel.CurrentWineTypeId = wineTypeId;
 
             _context.Entry(barrel).State = EntityState.Modified;
 
@@ -195,6 +196,7 @@ namespace WineApi.Controllers
             _context.Entry(currentHistory).State = EntityState.Modified;
 
             barrel.CurrentWineBarrelHistoryId = null;
+            barrel.CurrentWineTypeId = null;
 
             _context.Entry(barrel).State = EntityState.Modified;
 
