@@ -163,7 +163,7 @@
               "RelativeDocumentMoniker": "WineApi\\Controllers\\WineBarrelsController.cs",
               "ToolTip": "C:\\GitHub\\coffee-beans-the-movie\\Jank\\WineApi\\WineApi\\WineApi\\Controllers\\WineBarrelsController.cs",
               "RelativeToolTip": "WineApi\\Controllers\\WineBarrelsController.cs",
-              "ViewState": "AgIAADMCAAAAAAAAAAAAwDkCAAANAAAAAAAAAA==",
+              "ViewState": "AgIAADMCAAAAAAAAAAAAwDcCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T13:41:12.311Z",
               "EditorCaption": ""
@@ -178,8 +178,7 @@
               "RelativeToolTip": "WineApi\\Controllers\\WineTypesController.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAAADMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T14:43:58.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T14:43:58.47Z"
             },
             {
               "$type": "Document",
@@ -215,8 +214,7 @@
               "RelativeToolTip": "WineApi\\Helpers\\AuthHelper.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAACMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:24:25.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T14:24:25.846Z"
             },
             {
               "$type": "Document",
@@ -228,8 +226,7 @@
               "RelativeToolTip": "WineApi\\Helpers\\AuthResults.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:24:16.801Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T14:24:16.801Z"
             },
             {
               "$type": "Document",
@@ -265,8 +262,7 @@
               "RelativeToolTip": "WineApi\\Model\\AdditiveType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:14:28.413Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T14:14:28.413Z"
             },
             {
               "$type": "Document",
@@ -278,8 +274,7 @@
               "RelativeToolTip": "WineApi\\Model\\Contraints\\AdditiveConstraints.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:14:26.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T14:14:26.185Z"
             },
             {
               "$type": "Document",
@@ -291,8 +286,7 @@
               "RelativeToolTip": "WineApi\\Model\\Contraints\\FermentationEntryConstraints.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAYwBEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:13:39.392Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T14:13:39.392Z"
             },
             {
               "$type": "Document",
@@ -328,8 +322,7 @@
               "RelativeToolTip": "WineApi\\Model\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:12:51.477Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T14:12:51.477Z"
             },
             {
               "$type": "Document",
@@ -341,8 +334,7 @@
               "RelativeToolTip": "WineApi\\Model\\Contraints\\WineBarrelConstraints.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:08:48.414Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T14:08:48.414Z"
             },
             {
               "$type": "Document",
@@ -354,8 +346,7 @@
               "RelativeToolTip": "WineApi\\Model\\WineBarrelHistory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:08:08.853Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T14:08:08.853Z"
             },
             {
               "$type": "Document",
@@ -367,8 +358,7 @@
               "RelativeToolTip": "WineApi\\Model\\WineType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:08:07.333Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T14:08:07.333Z"
             },
             {
               "$type": "Document",
@@ -392,8 +382,7 @@
               "RelativeToolTip": "WineApi\\Model\\WineBarrel.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T13:32:21.094Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T13:32:21.094Z"
             },
             {
               "$type": "Document",
@@ -405,8 +394,7 @@
               "RelativeToolTip": "WineApi\\Seeder\\DbSeeder.cs",
               "ViewState": "AgIAAGIAAAAAAAAAAAAAAGoAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T07:53:27.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T07:53:27.079Z"
             }
           ]
         }
